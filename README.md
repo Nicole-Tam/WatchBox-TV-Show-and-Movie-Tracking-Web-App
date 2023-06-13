@@ -24,6 +24,10 @@ I used to think that some dead code is good to leave in case things change in th
 
 I used to think that some dead code is good to leave in case things change in the future. THIS IS NOT THE CASE. 
 
+## Github is weirdly confusing yet simple
+It's great that VS code's git Source Panel makes it much easier to understand, and after you use it for a while you start understanding how to push and commit using the terminal as well.
+
+
 ## Sources:
 http://meyerweb.com/eric/tools/css/reset/
 <br>https://www.w3schools.com/tags/att_lang.asp
