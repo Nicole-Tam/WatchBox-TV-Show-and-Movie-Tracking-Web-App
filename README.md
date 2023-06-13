@@ -35,4 +35,5 @@ I didn't know what it was called before. All I knew from previous projects was t
 ## Sources:
 http://meyerweb.com/eric/tools/css/reset/
 <br>https://www.w3schools.com/tags/att_lang.asp
+<br>https://medium.com/@madhum86/css-font-sizing-pixels-vs-em-vs-rem-vs-percent-vs-viewport-units-b1485716afe7
 
