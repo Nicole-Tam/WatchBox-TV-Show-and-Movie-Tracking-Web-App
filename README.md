@@ -2,9 +2,12 @@
 ## <u><b>Context</b></u>
 My Web App “WatchBox” is a tracking app for TV shows and Movies. It’s designed to help movie and TV show enthusiasts keep track of their content, and can be used to sort their current, past and future watching preferences. It serves as a digital diary for their viewing entertainment, allowing for users to maintain a record of their favourite movies and tv shows, ratings, descriptions, reviews, genres, watched and to watch. It’s suitable for all kinds of shows and movies, as well as people of all ages, due to it’s simplistic and user-centered design. “Watchbox” aims to help users seamlessly log and track their watch habits.
 
-## Initial development
+## Initial Development
 Firstly, I made the navigation bar, making sure the styles were all correct and the add content button was where I liked it. I utilised flex box to and justify-content: space-between; to make sure that they were symmetrically balanced. I used a CSS reset by Eric Meyer to reset default browser css styles and provide consistency across different browsers. I also added a language attribute for screen reader accessibility.
 
+
+## Filter Development
+I had a little bit of trouble making the filters stay exactly where I wanted to on the page. I was initially going to use CSS selectors to make the watched and to watch sections indent from the rest of the list, but making a subfilter option class seemed to make more sense since there were 4 items that needed to be indented. Furthermore, I didn't know how to make the left side have a line going down it, but this <a href="https://stackoverflow.com/questions/25584359/creating-a-vertical-line-next-to-a-list-item">source</a> solved it really easily by creating a solid line on the left border. I could make a div that encapsulates both objects and create a solid line on the left of the items like shown in my finalised design, this line encapsulated both options, but after looking at it in the browser, I think that it creates a nice distinct visual separation between the two options, while making it clear that it's under the category movies/tv shows.
 
 # Things I learnt through this project
 ## ID's can be useful!
@@ -36,4 +39,5 @@ I didn't know what it was called before. All I knew from previous projects was t
 http://meyerweb.com/eric/tools/css/reset/
 <br>https://www.w3schools.com/tags/att_lang.asp
 <br>https://medium.com/@madhum86/css-font-sizing-pixels-vs-em-vs-rem-vs-percent-vs-viewport-units-b1485716afe7
+<br>https://stackoverflow.com/questions/25584359/creating-a-vertical-line-next-to-a-list-item
 
