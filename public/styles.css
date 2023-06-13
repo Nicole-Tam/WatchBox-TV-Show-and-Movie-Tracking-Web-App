@@ -28,6 +28,7 @@ body {
   background-image: linear-gradient(to bottom right, #3F1E60, #001C4C);
   min-height: 100vh;
   font-family: Lato;
+  color: white;
 }
 
 
@@ -66,12 +67,10 @@ body {
 #my-content{
   font-size: 3em;
   font-weight: bold;
-  color: white;
   margin: 2rem 20rem 1.5rem;
 }
 
 #filter-bar{
-  color: white;
   width: 20rem; /*so that the size doesn't change when the window is smaller*/
   height: auto;
   padding-left:15%
@@ -88,4 +87,20 @@ body {
   padding-left: 1em;
   border-left: 1px solid;
   list-style: none;
+}
+
+#content-div {
+  overflow-y: scroll; /*turns div into scrollable div */
+  height:auto;
+}
+
+#content-table {
+  width: 60%;
+  float:right;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
