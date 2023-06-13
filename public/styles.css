@@ -67,7 +67,7 @@ body {
   font-size: 3em;
   font-weight: bold;
   color: white;
-  margin: 0.8rem 20rem;
+  margin: 2rem 20rem 1.5rem;
 }
 
 #filter-bar{
@@ -83,12 +83,8 @@ body {
   list-style: none;
 }
 
-.filter-option:first-child{
-  padding-top: 2em;
-}
-
 .subfilter-option{
-  margin: 0.5em 5em;
+  margin: 0.8em 5em;
   padding-left: 1em;
   border-left: 1px solid;
   list-style: none;
