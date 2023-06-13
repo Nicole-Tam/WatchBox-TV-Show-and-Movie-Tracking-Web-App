@@ -35,7 +35,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1em 3em;
-  height:4em;
+  height: 4em;
   background-color: #061735;
 }
 
@@ -51,15 +51,22 @@ body {
 #add-content button {
   height: 70%;
   width: 15rem;
-  color:#003A6D;
-  font-size:20px;
+  color: #003A6D;
+  font-size: 20px;
   border-radius: 3px;
 }
 
 #logo {
   z-index: 9999;
   width: 13em;
-  justify-content:flex-start;
+  justify-content: flex-start;
+}
+
+#my-content{
+  font-size: 3em;
+  font-weight: bold;
+  color: white;
+  margin: 2em 8em;
 }
 
 
