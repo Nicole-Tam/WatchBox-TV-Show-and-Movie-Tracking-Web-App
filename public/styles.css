@@ -58,7 +58,7 @@ body {
 
 #logo {
   z-index: 9999;
-  width: 13em;
+  width: 13rem;
   justify-content: flex-start;
 }
 
@@ -67,7 +67,7 @@ body {
   font-family: Lato;
   font-weight: bold;
   color: white;
-  margin: 0.8% 20%;
+  margin: 0.8rem 20rem;
 }
 
 
