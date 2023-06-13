@@ -43,4 +43,6 @@ http://meyerweb.com/eric/tools/css/reset/
 <br>https://www.w3schools.com/tags/att_lang.asp
 <br>https://medium.com/@madhum86/css-font-sizing-pixels-vs-em-vs-rem-vs-percent-vs-viewport-units-b1485716afe7
 <br>https://stackoverflow.com/questions/25584359/creating-a-vertical-line-next-to-a-list-item
+<br>https://www.w3schools.com/html/html_tables.asp
+<br>https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
 
