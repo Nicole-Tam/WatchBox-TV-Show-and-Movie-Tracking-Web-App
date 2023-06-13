@@ -29,6 +29,9 @@ It's great that VS code's git Source Panel makes it much easier to understand, a
 
 I was also quite scared to commit changes, because I wanted to make sure everything was perfect and there were no embarrassing mistakes before I committed. But as I committed my initial progress of the nav bar and updated small things that I have overlooked and committed and pushed those again, I realise that there's really nothing to be ashamed about; the point of committing is to show yourself and others the progress you have made, big or small. In fact if you don't update it enough you miss all the small changes you made to perfect it, all the testing and small adjustments in css and flexbox to make it align perfectly, and again, thats the whole point of a repository. 
 
+## Kebab Case!
+I didn't know what it was called before. All I knew from previous projects was that camelCase was easy to write, but difficult for me personally to read and debug. I actually thought kebab-case was the same as snake_case, but a kebab is much easier on my pinkies.
+
 ## Sources:
 http://meyerweb.com/eric/tools/css/reset/
 <br>https://www.w3schools.com/tags/att_lang.asp
