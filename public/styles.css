@@ -64,9 +64,10 @@ body {
 
 #my-content{
   font-size: 3em;
+  font-family: Lato;
   font-weight: bold;
   color: white;
-  margin: 2em 8em;
+  margin: 0.8em 8em;
 }
 
 
