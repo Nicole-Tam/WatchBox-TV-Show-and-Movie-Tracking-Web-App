@@ -26,7 +26,8 @@ time, mark, audio, video {
 
 body {
   background-image: linear-gradient(to bottom right, #3F1E60, #001C4C);
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; /* the background usually automatically repeats to fill the page without this. I turned it on so that it's clear where the page ends.*/
+  min-height: 100vh;
 }
 
 
