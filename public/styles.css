@@ -72,17 +72,24 @@ body {
 
 #filter-bar{
   color: white;
-  width: 15rem; /*so that the size doesn't change when the window is smaller*/
+  width: 20rem; /*so that the size doesn't change when the window is smaller*/
   height: auto;
   padding-left:15%
 }
 
 
 .filter-option{
-  padding:1em 3em;
+  padding:1em 3em 0.5em; 
   list-style: none;
 }
 
 .filter-option:first-child{
   padding-top: 2em;
+}
+
+.subfilter-option{
+  margin: 0.5em 5em;
+  padding-left: 1em;
+  border-left: 1px solid;
+  list-style: none;
 }
