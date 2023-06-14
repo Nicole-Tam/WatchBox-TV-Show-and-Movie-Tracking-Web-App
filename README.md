@@ -2,6 +2,8 @@
 ## <u><b>Context</b></u>
 My Web App “WatchBox” is a tracking app for TV shows and Movies. It’s designed to help movie and TV show enthusiasts keep track of their content, and can be used to sort their current, past and future watching preferences. It serves as a digital diary for their viewing entertainment, allowing for users to maintain a record of their favourite movies and tv shows, ratings, descriptions, reviews, genres, watched and to watch. It’s suitable for all kinds of shows and movies, as well as people of all ages, due to it’s simplistic and user-centered design. “Watchbox” aims to help users seamlessly log and track their watch habits.
 
+
+## <u>HTML & CSS Stages</u>
 ## Initial Development
 Firstly, I made the navigation bar, making sure the styles were all correct and the add content button was where I liked it. I utilised flex box to and justify-content: space-between; to make sure that they were symmetrically balanced. I used a CSS reset by Eric Meyer to reset default browser css styles and provide consistency across different browsers. I also added a language attribute for screen reader accessibility.
 
@@ -11,6 +13,16 @@ I had a little bit of trouble making the filters stay exactly where I wanted to 
 
 
 After some revision, I realised that changing the margin of the "My Content" header made more sense than using li:first-child.
+
+## Table Development
+I made the table with the relevant headings, but soon realised that because the filter div was written above and not related to the table, it would display above the table itself. Thus, I needed to either use a CSS Grid or wrap both elements in a section and use flexbox or float to put them side by side. However, the grid was still looking a bit weird. After using Googles' developer tool to see why it looked so weird, I realised it was because I wrapped the table in the scrollable div. So then I fixed it by making the table width 100% instead of 60%, as it was changing it to 60% of the parent div, not the vw. 
+
+
+![Alt text](readme-assets/devtools.png)
+
+
+I then made a custom scrollbar with the help of <a href="https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp>">W3 Schools</a>.
+
 
 # Things I learnt through this project
 ## ID's can be useful!
@@ -37,6 +49,9 @@ I was also quite scared to commit changes, because I wanted to make sure everyth
 
 ## Kebab Case!
 I didn't know what it was called before. All I knew from previous projects was that camelCase was easy to write, but difficult for me personally to read and debug. I actually thought kebab-case was the same as snake_case, but a kebab is much easier on my pinkies.
+
+## USE DEVTOOLS!
+For my previous assignments, I rarely used google's developer tool. I would just go through the html and css again and again, reading lines until my eyes bled. It's so much easier finding where you accidentally made a div or made margins too big with dev tools. If only I could go back in time...
 
 ## Sources:
 http://meyerweb.com/eric/tools/css/reset/
