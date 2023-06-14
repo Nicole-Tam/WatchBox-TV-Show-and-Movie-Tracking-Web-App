@@ -73,7 +73,6 @@ body {
 #filter-bar{
   width: 20rem; /*so that the size doesn't change when the window is smaller*/
   height: auto;
-  padding-left:15%
 }
 
 
@@ -91,16 +90,27 @@ body {
 
 #content-div {
   overflow-y: scroll; /*turns div into scrollable div */
-  height:auto;
+  width: 50%;
 }
 
 #content-table {
-  width: 60%;
-  float:right;
+  width: 100%;
+  margin-top:0.5em;
 }
 
 th, td {
-  padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+}
+
+
+#table-title {
+  float: left;
+  font-size:2em;
+  margin-bottom:0.5em;
+}
+
+#main-page-wrapper {
+  display: flex;
+  justify-content: center;
 }
