@@ -149,8 +149,7 @@ th { /*https://css-tricks.com/position-sticky-and-table-headers*/
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center;}
 
 #content-popup {
   background-image: linear-gradient(to bottom right, #3F1E60, #001C4C);
@@ -161,9 +160,77 @@ th { /*https://css-tricks.com/position-sticky-and-table-headers*/
 
 #content-form {
   display: grid;
-  gap: 10px;
+  grid-template-columns: 0.6fr 1.8fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "form-labels form-answer-middle"
+    "form-labels form-answer-middle";
 }
+
+.form-labels { grid-area: form-labels; }
+
+.form-answer-middle { grid-area: form-answer-middle; }
+
 
 #content-table {
   margin-top: 20px;
 }
+
+h2{
+  font-size:2em;
+  padding-bottom: 0.3em;
+}
+
+
+
+.container {  display: grid;
+  grid-template-columns: 0.6fr 1.3fr 1.5fr;
+  grid-template-rows: 1.1fr 0.9fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "content-type movie-button tv-show-button"
+    "genre genre-dropdown genre-dropdown"
+    "description description-field description-field"
+    "review review-field review-field"
+    "runtime runtime-field runtime-field-minutes"
+    "currently-at seasons-field episode-field"
+    "add-to add-to-field add-to-field"
+    ". . .";
+}
+
+.content-type { grid-area: content-type; }
+
+.movie-button { grid-area: movie-button; }
+
+.tv-show-button { grid-area: tv-show-button; }
+
+.genre { grid-area: genre; }
+
+.genre-dropdown { grid-area: genre-dropdown; }
+
+.description { grid-area: description; }
+
+.description-field { grid-area: description-field; }
+
+.review { grid-area: review; }
+
+.review-field { grid-area: review-field; }
+
+.runtime { grid-area: runtime; }
+
+.runtime-field { grid-area: runtime-field; }
+
+.runtime-field-minutes { grid-area: runtime-field-minutes; }
+
+.currently-at { grid-area: currently-at; }
+
+.episode-field { grid-area: episode-field; }
+
+.seasons-field { grid-area: seasons-field; }
+
+.add-to { grid-area: add-to; }
+
+.add-to-field { grid-area: add-to-field; }
