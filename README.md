@@ -23,6 +23,11 @@ I made the table with the relevant headings, but soon realised that because the 
 
 I then made a custom scrollbar with the help of <a href="https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp>">W3 Schools</a>.
 
+## Pop Up Development
+
+I initially wanted to remove the outline of the add new content button, but after reading a few articles on <a href="https://www.a11yproject.com/posts/never-remove-css-outlines/">how important the outline and in particular an outline when a button is focused on is</a>, I decided not to, and to change the outline to white, as well as provide an underline when focused to help accessibility. 
+https://www.youtube.com/watch?v=MBaw_6cPmAw
+
 
 # Things I learnt through this project
 ## ID's can be useful!
@@ -60,4 +65,6 @@ http://meyerweb.com/eric/tools/css/reset/
 <br>https://stackoverflow.com/questions/25584359/creating-a-vertical-line-next-to-a-list-item
 <br>https://www.w3schools.com/html/html_tables.asp
 <br>https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
+<br>https://css-tricks.com/position-sticky-and-table-headers/
+<br>https://www.youtube.com/watch?v=MBaw_6cPmAw
 
