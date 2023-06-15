@@ -24,6 +24,10 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+*{
+  box-sizing: border-box;
+}
+
 body {
   background-image: linear-gradient(to bottom right, #3F1E60, #001C4C);
   min-height: 100vh;
@@ -31,12 +35,13 @@ body {
   color: white;
 }
 
+
 #navigation-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1em 3em;
-  height: 4em;
+  height: 5.3rem;
   background-color: #061735;
 }
 
@@ -109,8 +114,18 @@ body {
 #content-table {
   width: 100%;
   margin-top: 0.5em;
-  overflow-x: auto;
+  overflow-x: none;
   border-collapse:collapse;
+}
+
+#table-header, th{
+  background-color: #061735;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#review-header{
+  width:50%;
 }
 
 th, td {
@@ -122,11 +137,19 @@ th, td {
   float: left;
   font-size: 2em;
   margin-bottom: 0.5em;
+  background-color: #061735;
+  width:100%;
+  font-size: 2em;
+  padding: 0.5em;
+  text-align: left;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
 }
 
 th { /*https://css-tricks.com/position-sticky-and-table-headers*/
   position: sticky;
   top: 0;
+  width:100%;
 }
 
 ::-webkit-scrollbar {
@@ -160,22 +183,14 @@ th { /*https://css-tricks.com/position-sticky-and-table-headers*/
 
 #content-form {
   display: grid;
-  grid-template-columns: 0.6fr 1.8fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "form-labels form-answer-middle"
-    "form-labels form-answer-middle";
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;
+  
 }
-
-.form-labels { grid-area: form-labels; }
-
-.form-answer-middle { grid-area: form-answer-middle; }
-
 
 #content-table {
   margin-top: 20px;
+  display: block;
 }
 
 h2{
@@ -184,53 +199,19 @@ h2{
 }
 
 
-
-.container {  display: grid;
+.form-grid{  display: grid;
   grid-template-columns: 0.6fr 1.3fr 1.5fr;
   grid-template-rows: 1.1fr 0.9fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas:
-    "content-type movie-button tv-show-button"
-    "genre genre-dropdown genre-dropdown"
-    "description description-field description-field"
-    "review review-field review-field"
-    "runtime runtime-field runtime-field-minutes"
-    "currently-at seasons-field episode-field"
-    "add-to add-to-field add-to-field"
-    ". . .";
 }
 
-.content-type { grid-area: content-type; }
+.form-label { grid-area: 1 / 1 / 9 / 2; }
 
-.movie-button { grid-area: movie-button; }
+.form-inputs { grid-area: 1 / 2 / 9 / 4; }
 
-.tv-show-button { grid-area: tv-show-button; }
+.form-title { grid-area: 1 / 1 / 2 / 4; }
 
-.genre { grid-area: genre; }
-
-.genre-dropdown { grid-area: genre-dropdown; }
-
-.description { grid-area: description; }
-
-.description-field { grid-area: description-field; }
-
-.review { grid-area: review; }
-
-.review-field { grid-area: review-field; }
-
-.runtime { grid-area: runtime; }
-
-.runtime-field { grid-area: runtime-field; }
-
-.runtime-field-minutes { grid-area: runtime-field-minutes; }
-
-.currently-at { grid-area: currently-at; }
-
-.episode-field { grid-area: episode-field; }
-
-.seasons-field { grid-area: seasons-field; }
-
-.add-to { grid-area: add-to; }
-
-.add-to-field { grid-area: add-to-field; }
+#show-name{
+  display:none;
+}
