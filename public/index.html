@@ -13,19 +13,27 @@
       <img src="assets/logo.svg" id="logo" alt="Logo">
     </div>
     <div id="add-content">
-      <button id="add-content-button"><strong>+</strong> Add New Content</button>
+      <button id="add-content-button"><b>+</b> Add New Content</button>
     </div>
   </nav>
 
   <div id="content-popup-background">
     <div id="content-popup">
-      <h2>Add Content</h2>
       <form id="content-form">
-        <div class="form-labels">
-        <button id="movie-button" data-type="movie">Movie</button>
-        <button id="tvshow-button" data-type="tvshow">TV Show</button>
-        <label for="title">Title:</label>
-        <input type="text" id="title" required>
+        <h2 class="form-title">Add Content</h2>
+      <div class="form-grid">
+        <div class="form-label"> <label for="type">Content Type:</label>
+          <label for="title">Title:</label>
+        </div>
+
+        <div class="form-inputs">        <button id="movie-button" data-type="movie">Movie</button>
+          <button id="tvshow-button" data-type="tvshow">TV Show</button>
+          <input type="text" id="movie-name" placeholder="Movie Name" required>
+          <input type="text" id="show-name" placeholder="TV Show Name" required>
+        </div>
+      </div>
+        
+        
         <label for="category">Genre:</label>
         <input type="text" id="genre" required>
         <label for="description">Description:</label>
@@ -34,48 +42,26 @@
         <input type="text" id="review">
         <label for="rating">Rating:</label>
         <input type="number" id="rating" min="1" max="10" required>
-        <div id="runtime-field">
-          <label for="runtime">Runtime:</label>
+        <label for="runtime" id="runtime-label">Runtime:</label>
+        <label for="runtime" id="runtime-label">Length:</label>
+        <div id="runtime-field" class="content-field">
           <input type="number" id="runtime" min="1" max="1000" required>
         </div>
-        <div id="left-off-field" style="display: none;">
+        <div id="left-off-field" class="content-field" style="display: none;">
           <label for="seasons">Seasons:</label>
           <input type="number" id="seasons" min="1" required>
-          <label for="episodes">Episodes:</label>
-          <input type="number" id="episodes" min="1" required>
+          <label for="seasons">Episodes:</label>
+          <input type="number" id="seasons" min="1" required>
         </div>
         <button type="submit">Save</button>
       </form>
     </div>
   </div>
-
-  <div class="container">
-    <div class="content-type"></div>
-    <div class="movie-button"></div>
-    <div class="tv-show-button"></div>
-    <div class="genre"></div>
-    <div class="genre-dropdown"></div>
-    <div class="description"></div>
-    <div class="description-field"></div>
-    <div class="review"></div>
-    <div class="review-field"></div>
-    <div class="runtime"></div>
-    <div class="runtime-field"></div>
-    <div class="runtime-field-minutes"></div>
-    <div class="currently-at"></div>
-    <div class="episode-field"></div>
-    <div class="seasons-field"></div>
-    <div class="add-to"></div>
-    <div class="add-to-field"></div>
-  </div>
-
-
-
-
-
-
-
   
+
+
+
+
   <header id="my-content">My Content</header>
   
   <section id="main-page-wrapper">
@@ -89,18 +75,22 @@
       <li class="subfilter-option" data-category="to-watch-tvshows">To Watch</div>
     </ul>
 
-    <div id="content-div">
+    <main id="content-div">
       <table id="content-table"> 
         <thead>
           <caption id="table-title">Movies TV Shows PLACEHOLDER</caption>
           <tr id="table-header">
-            <th>Image</th>
             <th>Show Review</th>
             <th>Genre</th>
             <th>Rating</th>
             <th>Left off/Runtime</th>
           </tr>
         </thead>
+
+
+
+
+
         <tbody>
 
 
@@ -108,7 +98,7 @@
 
 
       </table>
-    </div>
+    </main>
   </section>
   <script src="script.js"></script>
 </body>
