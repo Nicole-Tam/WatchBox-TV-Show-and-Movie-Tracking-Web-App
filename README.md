@@ -32,6 +32,8 @@ However, I ran into some problems when making the table. I realised that for the
 I initially wanted to remove the outline of the add new content button, but after reading a few articles on <a href="https://www.a11yproject.com/posts/never-remove-css-outlines/">how important the outline and in particular an outline when a button is focused on is</a>, I decided not to, and to change the outline to white, as well as provide an underline when focused to help accessibility. 
 https://www.youtube.com/watch?v=MBaw_6cPmAw
 
+I originally wanted to use CSS Grid, but felt more confident in my ability to use flexbox to style it the way I liked. Regardless, it was a similar layout to css grid, with the divs separating each row. In the future, I would probably use CSS grid because it takes up less space in the code, but for something small like this, I think it's legible.
+
 ## Left off vs Length
 
 The original idea for TV shows was for the tracker to show the user which season/episode they are on. However, it didn't make much sense for it to track which episode viewers are on when apps like Netflix and DisneyPlus already save that data, and the entered data is unable to be edited, only viewed back. Hence, I changed the left off label to show the length of the show instead.

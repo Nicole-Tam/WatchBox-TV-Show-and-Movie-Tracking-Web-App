@@ -212,15 +212,21 @@ h2{
   display:none;
 }
 
-.close-form{
-  float:right;
+#form-close{
+  color:white;
+}
+
+.form-title {
+  display:flex;
+  justify-content: space-between;
+  margin:0 0.5rem;
 }
 
 .form-content{
-  width:100%;
+  display:flex;
+  margin:0.5rem;}
 
-}
-
-.form-input{
-  float:right;
+.form-content > label{
+  float:left;
+  width:20%;
 }

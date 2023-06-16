@@ -21,35 +21,26 @@
   <div id="content-popup-background">
     <div id="content-popup">
       <form id="content-form">
-        <div><h2 >Add Content</h2> <div class="close-form"><a href="#">&#10006;</a></div></div>
-        <div class="form-content"><label for="type">Content Type:</label><div class="form-input"></div><button id="movie-button" data-type="movie">Movie</button>
-        <button id="tvshow-button" data-type="tvshow">TV Show</button></div>
+        <div class="form-title"><h2>Add Content</h2><div><a href="#" id="form-close">&#10006;</a></div></div>
+        <div class="form-content"><label class="form-label" for="type">Content Type:</label><div class="form-input"><button id="movie-button" data-type="movie">Movie</button>
+        <button id="tvshow-button" data-type="tvshow">TV Show</button></div></div>
         <div class="form-content"><label for="title">Title:</label><div class="form-input"><input type="text" name="title"></div></div>
-        <div class="form-content"><label for="genre">Genre:</label><div class="form-input"><select name="genre" multiple><option value="horror">Horror</option></select></div></div>
+        <div class="form-content"><label for="genre">Genre:</label><div class="form-input"><select name="genre" multiple><option value="horror">Horror</option><option value="comedy">Comedy</option></select></div></div>
         <div class="form-content"><label for="description">Description:</label><div class="form-input"><input type="text" name="description"></div></div>
-        <div class="form-content"><label for="review">Review:</label><div class="form-input"><input type="text" name="review"></div><input type="text" name="review"></div>
-        <div class="form-content"><label for="rating">Rating:</label><div class="form-input"><input type="text" name="rating"></div><input type="number" name="rating" min="1" max="10" required></div>
-        <div class="form-content"><label for="runtime" id="runtime-label">Runtime:</label><div class="form-input" id="runtime-field"></div><input type="text" name="runtime"></div>
-        <div class="form-content"><label for="show-length">Show Length:</label><div class="form-input"></div><input type="text" name="show-length"></div>
+        <div class="form-content"><label for="review">Review:</label><div class="form-input"><input type="text" name="review"></div></div>
+        <div class="form-content"><label for="rating">Rating:</label><div class="form-input"><input type="number" name="rating" min="1" max="10" required></div></div>
+        <div class="form-content"><label for="runtime" id="runtime-label">Runtime:</label><div class="form-input" id="runtime-field"></div><input type="number" name="runtime"></div>
+        <div class="form-content"><label for="show-length" id="length">Show Length:</label><div class="form-input"><label for="seasons">Seasons:</label>
+          <input type="number" id="seasons" min="1" required>
+          <label for="seasons">Episodes:</label>
+          <input type="number" id="seasons" min="1" required></div></div>
         <button type="submit">Save</button>
       </div>
         
-
-        <div id="runtime-field" class="content-field">
-          <input type="number" id="runtime" min="1" max="1000" required>
-        </div>
-        <div id="left-off-field" class="content-field" style="display: none;">
-          <label for="seasons">Seasons:</label>
-          <input type="number" id="seasons" min="1" required>
-          <label for="seasons">Episodes:</label>
-          <input type="number" id="seasons" min="1" required>
-        </div>
-        <button type="submit">Save</button>
       </form>
     </div>
   </div>
   
-
 
 
 
