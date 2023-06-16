@@ -11,7 +11,7 @@ Firstly, I made the navigation bar, making sure the styles were all correct and 
 
 
 ## Filter Development
-I had a little bit of trouble making the filters stay exactly where I wanted to on the page. I was initially going to use CSS selectors to make the watched and to watch sections indent from the rest of the list, but making a subfilter option class seemed to make more sense since there were 4 items that needed to be indented. Furthermore, I didn't know how to make the left side have a line going down it, but this <a href="https://stackoverflow.com/questions/25584359/creating-a-vertical-line-next-to-a-list-item">source</a> solved it really easily by creating a solid line on the left border. I could make a div that encapsulates both objects and create a solid line on the left of the items like shown in my finalised design, this line encapsulated both options, but after looking at it in the browser, I think that it creates a nice distinct visual separation between the two options, while making it clear that it's under the category movies/tv shows.
+I had a little bit of trouble making the filters stay exactly where I wanted to on the page. I was initially going to use CSS selectors to make the watched and to watch sections indent from the rest of the list, but making a subfilter option class seemed to make more sense since there were 4 items that needed to be indented. Furthermore, I didn't know how to make the left side have a line going down it, but this <a href="https://stackoverflow.com/questions/25584359/creating-a-vertical-line-next-to-a-list-item">source</a> solved it really easily by creating a solid line on the left border and a div that encapsulates both objects so that the solid line on the left of the items would be one seamless line like shown in my finalised design.
 
 
 After some revision, I realised that changing the margin of the "My Content" header made more sense than using li:first-child.
@@ -87,4 +87,5 @@ http://meyerweb.com/eric/tools/css/reset/
 <br>https://www.youtube.com/watch?v=MBaw_6cPmAw
 <br>https://stackoverflow.com/questions/2617895/actual-table-vs-div-table
 <br>https://stackoverflow.com/questions/38870246/html-css-change-color-of-select-arrow
+<br>https://www.youtube.com/watch?v=RzLX3bVtssY
 

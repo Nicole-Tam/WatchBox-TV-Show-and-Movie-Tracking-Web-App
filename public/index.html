@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <link rel="stylesheet" href="./public/main.css">
   <title>Content Tracker</title>
   <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
@@ -25,7 +24,7 @@
       <form id="content-form">
         <div class="form-title">
           <h2>Add Content</h2>
-          <div><a href="#" id="form-close">&#10006;</a></div>
+          <div id="form-close"><a href="#">&#10006;</a></div>
         </div>
         <div class="form-content"><label class="form-label" for="type">Content Type:</label>
           <div class="form-input"><button id="movie-button" data-type="movie">Movie</button>
@@ -48,7 +47,7 @@
           <div class="form-input"><input type="text" name="description" class="text-field-large"></div>
         </div>
         <div class="form-content"><label for="review">Review:</label>
-          <div class="form-input"><input type="text" name="review"></div>
+          <div class="form-input"><input type="text" name="review" class="text-field-large"></div>
         </div>
         <div class="form-content"><label for="rating">Rating:</label>
           <div class="form-input"><select name="rating">
@@ -69,16 +68,15 @@
           <div class="form-input" id="runtime-field"><input type="number" name="runtime" max="1000"> &nbsp Minutes</div>
         </div>
         <div class="form-content" id="show-length"><label for="show-length">Show Length:</label>
-          <div class="form-input"><label for="seasons">Seasons:&nbsp</label>
+          <div class="form-input" id="show-input"><label for="seasons">Seasons:&nbsp </label>
             <input type="seasons" min="1" max="100000" required>
-            <label for="episodes">&nbsp &nbsp Episodes:&nbsp</label>
+            <label for="episodes">Episodes:&nbsp</label>
             <input type="episodes" min="1" max="100000" required>
           </div>
         </div>
         <button type="submit" id="save">Save</button>
     </div>
     </form>
-  </div>
   </div>
 
 
@@ -90,11 +88,15 @@
     <ul id="filter-bar">
       <li class="filter-option" data-category="all">All</li>
       <li class="filter-option" data-category="movies">Movies</li>
-      <li class="subfilter-option" data-category="watched-movies">Watched</li>
-      <li class="subfilter-option" data-category="to-watch-movies">To Watch</li>
+      <nav class="filter-container">
+        <li class="subfilter-option" data-category="watched-movies">Watched</li>
+        <li class="subfilter-option" data-category="to-watch-movies">To Watch</li>
+      </nav>
       <li class="filter-option" data-category="tvshows">TV Shows</li>
-      <li class="subfilter-option" data-category="watched-tvshows">Watched</li>
-      <li class="subfilter-option" data-category="to-watch-tvshows">To Watch</li>
+      <nav class="filter-container">
+        <li class="subfilter-option" data-category="watched-tvshows">Watched</li>
+        <li class="subfilter-option" data-category="to-watch-tvshows">To Watch</li>
+      </nav>
     </ul>
 
     <main id="content-div">
