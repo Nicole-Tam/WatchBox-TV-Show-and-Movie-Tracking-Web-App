@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="./public/main.css">
   <title>Content Tracker</title>
   <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
@@ -20,30 +21,20 @@
   <div id="content-popup-background">
     <div id="content-popup">
       <form id="content-form">
-        <h2 class="form-title">Add Content</h2>
-      <div class="form-grid">
-        <div class="form-label"> <label for="type">Content Type:</label>
-          <label for="title">Title:</label>
-        </div>
-
-        <div class="form-inputs">        <button id="movie-button" data-type="movie">Movie</button>
-          <button id="tvshow-button" data-type="tvshow">TV Show</button>
-          <input type="text" id="movie-name" placeholder="Movie Name" required>
-          <input type="text" id="show-name" placeholder="TV Show Name" required>
-        </div>
+        <div><h2 >Add Content</h2> <div class="close-form"><a href="#">&#10006;</a></div></div>
+        <div class="form-content"><label for="type">Content Type:</label><div class="form-input"></div><button id="movie-button" data-type="movie">Movie</button>
+        <button id="tvshow-button" data-type="tvshow">TV Show</button></div>
+        <div class="form-content"><label for="title">Title:</label><div class="form-input"><input type="text" name="title"></div></div>
+        <div class="form-content"><label for="genre">Genre:</label><div class="form-input"><select name="genre" multiple><option value="horror">Horror</option></select></div></div>
+        <div class="form-content"><label for="description">Description:</label><div class="form-input"><input type="text" name="description"></div></div>
+        <div class="form-content"><label for="review">Review:</label><div class="form-input"><input type="text" name="review"></div><input type="text" name="review"></div>
+        <div class="form-content"><label for="rating">Rating:</label><div class="form-input"><input type="text" name="rating"></div><input type="number" name="rating" min="1" max="10" required></div>
+        <div class="form-content"><label for="runtime" id="runtime-label">Runtime:</label><div class="form-input" id="runtime-field"></div><input type="text" name="runtime"></div>
+        <div class="form-content"><label for="show-length">Show Length:</label><div class="form-input"></div><input type="text" name="show-length"></div>
+        <button type="submit">Save</button>
       </div>
         
-        
-        <label for="category">Genre:</label>
-        <input type="text" id="genre" required>
-        <label for="description">Description:</label>
-        <input type="text" id="description">
-        <label for="review">Review:</label>
-        <input type="text" id="review">
-        <label for="rating">Rating:</label>
-        <input type="number" id="rating" min="1" max="10" required>
-        <label for="runtime" id="runtime-label">Runtime:</label>
-        <label for="runtime" id="runtime-label">Length:</label>
+
         <div id="runtime-field" class="content-field">
           <input type="number" id="runtime" min="1" max="1000" required>
         </div>
@@ -77,20 +68,16 @@
 
     <main id="content-div">
       <table id="content-table"> 
-        <thead>
+        <thead id="sticky-table">
           <caption id="table-title">Movies TV Shows PLACEHOLDER</caption>
           <tr id="table-header">
-            <th>Show Review</th>
-            <th>Genre</th>
-            <th>Rating</th>
-            <th>Left off/Runtime</th>
+            <th class="headers" id="type-header">Type</th>
+            <th class="headers" id="review-header">Review</th>
+            <th class="headers" id="genre-header">Genre</th>
+            <th class="headers" id="rating-header">Rating</th>
+            <th class="headers" id="length-header">Length/Runtime</th>
           </tr>
         </thead>
-
-
-
-
-
         <tbody>
 
 

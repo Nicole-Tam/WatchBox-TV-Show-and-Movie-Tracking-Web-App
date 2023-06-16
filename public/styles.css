@@ -81,7 +81,7 @@ body {
 #my-content{
   font-size: 3em;
   font-weight: bold;
-  margin: 2rem 20rem 1.5rem;
+  margin: 2rem 24rem 1.5rem;
 }
 
 #main-page-wrapper {
@@ -89,13 +89,8 @@ body {
   justify-content: center;
 }
 
-#filter-bar{
-  width: 20rem; /*so that the size doesn't change when the window is smaller*/
-  height: auto;
-}
-
 .filter-option{
-  padding:1em 3em 0.5em; 
+  margin:1em 3em 0.5em 3em; 
   list-style: none;
 }
 
@@ -104,6 +99,11 @@ body {
   padding-left: 1em;
   border-left: 1px solid;
   list-style: none;
+}
+
+.filter-option:hover, .subfilter-option:hover{
+  text-decoration: underline;
+  background-color: #061735;
 }
 
 #content-div {
@@ -116,40 +116,55 @@ body {
   margin-top: 0.5em;
   overflow-x: none;
   border-collapse:collapse;
+  font-weight:bold;
 }
 
-#table-header, th{
+.headers{  /*https://css-tricks.com/position-sticky-and-table-headers*/
+  padding:10px;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  width:100%;
   background-color: #061735;
-  border-radius: 10px;
-  padding: 10px;
+  padding: 1rem 1.5rem;
+  font-weight:bold;
+}
+
+
+#type-header{
+  width:10%;
+  border-bottom-left-radius: 1em;
 }
 
 #review-header{
-  width:50%;
+  width:35%;
 }
 
-th, td {
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+#genre-header{
+  width:15%;
 }
+
+#rating-header{
+  width:15%;
+}
+
+#length-header{
+  width:15%;
+  border-bottom-right-radius: 1em;
+}
+
+
 
 #table-title {
   float: left;
   font-size: 2em;
-  margin-bottom: 0.5em;
   background-color: #061735;
   width:100%;
   font-size: 2em;
-  padding: 0.5em;
+  padding: 1rem 1.5rem;
   text-align: left;
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
-}
-
-th { /*https://css-tricks.com/position-sticky-and-table-headers*/
-  position: sticky;
-  top: 0;
-  width:100%;
 }
 
 ::-webkit-scrollbar {
@@ -181,12 +196,6 @@ th { /*https://css-tricks.com/position-sticky-and-table-headers*/
   border-radius: 10px;
 }
 
-#content-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 20px;
-  
-}
 
 #content-table {
   margin-top: 20px;
@@ -196,22 +205,22 @@ th { /*https://css-tricks.com/position-sticky-and-table-headers*/
 h2{
   font-size:2em;
   padding-bottom: 0.3em;
+  display: inline-block;
 }
-
-
-.form-grid{  display: grid;
-  grid-template-columns: 0.6fr 1.3fr 1.5fr;
-  grid-template-rows: 1.1fr 0.9fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-}
-
-.form-label { grid-area: 1 / 1 / 9 / 2; }
-
-.form-inputs { grid-area: 1 / 2 / 9 / 4; }
-
-.form-title { grid-area: 1 / 1 / 2 / 4; }
 
 #show-name{
   display:none;
+}
+
+.close-form{
+  float:right;
+}
+
+.form-content{
+  width:100%;
+
+}
+
+.form-input{
+  float:right;
 }
