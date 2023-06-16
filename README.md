@@ -34,6 +34,7 @@ https://www.youtube.com/watch?v=MBaw_6cPmAw
 
 I originally wanted to use CSS Grid, but felt more confident in my ability to use flexbox to style it the way I liked. Regardless, it was a similar layout to css grid, with the divs separating each row. In the future, I would probably use CSS grid because it takes up less space in the code, but for something small like this, I think it's legible.
 
+There was also an issue with the genre select. If I allowed for multiple select, it would appear as a scrollable list, and not a dropdown, as dropdown menus only allow for one option, something I had not anticipated when making my design. Thus, I decided to go with the scrollable list as only one genre select would make the web app less functional.
 ## Left off vs Length
 
 The original idea for TV shows was for the tracker to show the user which season/episode they are on. However, it didn't make much sense for it to track which episode viewers are on when apps like Netflix and DisneyPlus already save that data, and the entered data is unable to be edited, only viewed back. Hence, I changed the left off label to show the length of the show instead.
@@ -73,6 +74,7 @@ For my previous assignments, I rarely used google's developer tool. I would just
 ## Use <b> to bold, use <strong> to semantically emphasise something while also bolding it
 It's in the name, but I thought the two were interchangable and mostly used whichever one I felt like. Semantic HTML is the gift that keeps on giving!
 
+## Shift + Alt + F formats your code for you!
 
 ## Sources:
 http://meyerweb.com/eric/tools/css/reset/
@@ -84,4 +86,5 @@ http://meyerweb.com/eric/tools/css/reset/
 <br>https://css-tricks.com/position-sticky-and-table-headers/
 <br>https://www.youtube.com/watch?v=MBaw_6cPmAw
 <br>https://stackoverflow.com/questions/2617895/actual-table-vs-div-table
+<br>https://stackoverflow.com/questions/38870246/html-css-change-color-of-select-arrow
 
