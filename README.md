@@ -3,7 +3,7 @@
 My Web App “WatchBox” is a tracking app for TV shows and Movies. It’s designed to help movie and TV show enthusiasts keep track of their content, and can be used to sort their current, past and future watching preferences. It serves as a digital diary for their viewing entertainment, allowing for users to maintain a record of their favourite movies and tv shows, ratings, descriptions, reviews, genres, watched and to watch. It’s suitable for all kinds of shows and movies, as well as people of all ages, due to it’s simplistic and user-centered design. “Watchbox” aims to help users seamlessly log and track their watch habits.
 
 ## <u>Things to note</u>
-Parcel is installed for future versions, but please run this current version on Node.js
+Parcel is installed for future versions, but please run this current version on Node.js.
 
 ## <u>HTML & CSS Stages</u>
 ## Initial Development
@@ -24,8 +24,7 @@ I then made a custom scrollbar with the help of <a href="https://www.w3schools.c
 ![Alt text](readme-assets/devtools.png)
 
 
-However, I ran into some problems when making the table. I realised that for the website to feature the design I wanted it to feature, making each row into individual sections would be better, although more tedious. This was because of the way tables work, I would be unable to customize the gap between rows, and would have to find and test different workarounds to make each row have an individual border radius. For me, making separate divs made more sense, as the CSS for tables and HTML also gets too messy for my liking. BUT... Tables are more <a href="https://stackoverflow.com/questions/2617895/actual-table-vs-div-table">semantically correct</a> for tabular data. So, I decided to push through and tried to learn more about tables, since it'll only benefit me in the future to become more familiar and prevent me from div souping.
-
+However, I ran into some problems when making the table. I realised that for the website to feature the design I wanted it to feature, making each row into individual sections would be better, although more tedious. This was because of the way tables work, I would be unable to customize the gap between rows, and would have to find and test different workarounds to make each row have an individual border radius. For me, making separate divs made more sense, as the CSS for tables and HTML also gets too messy for my liking. I read that tables are more <a href="https://stackoverflow.com/questions/2617895/actual-table-vs-div-table">semantically correct</a> for tabular data, but my tracker doesn't exactly show tabular data.
 
 ## Pop Up Development
 
@@ -70,11 +69,20 @@ I didn't know what it was called before. All I knew from previous projects was t
 ## USE DEVTOOLS!
 For my previous assignments, I rarely used google's developer tool. I would just go through the html and css again and again, reading lines until my eyes bled. It's so much easier finding where you accidentally made a div or made margins too big with dev tools. If only I could go back in time...
 
+It's also useful in basically every other aspect of front-end development
+
+## Should've used SCSS...
+
+Would've been much easier, despite needing to transition what I already had to scss. Will definitely be utilizing it in the future.
+
+![Alt text](readme-assets/devtools2.png)
 
 ## Use <b> to bold, use <strong> to semantically emphasise something while also bolding it
 It's in the name, but I thought the two were interchangable and mostly used whichever one I felt like. Semantic HTML is the gift that keeps on giving!
 
 ## Shift + Alt + F formats your code for you!
+
+
 
 ## Sources:
 http://meyerweb.com/eric/tools/css/reset/
@@ -88,4 +96,4 @@ http://meyerweb.com/eric/tools/css/reset/
 <br>https://stackoverflow.com/questions/2617895/actual-table-vs-div-table
 <br>https://stackoverflow.com/questions/38870246/html-css-change-color-of-select-arrow
 <br>https://www.youtube.com/watch?v=RzLX3bVtssY
-
+<br>https://stackoverflow.com/questions/3072597/semantically-accurate-html5-element-for-a-modal-dialog
