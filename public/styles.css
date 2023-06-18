@@ -125,13 +125,21 @@ body {
 }
 
 #add-content button {
-  height: 70%;
+  height: 2.6em;
   width: 15rem;
   color: #003A6D;
   font-size: 20px;
   border-radius: 5px;
   border-color: white;
 }
+
+.add-content-icon{
+  display:none;
+  }
+
+.add-content-text{
+  display:block;
+    }  
 
 #add-content button:hover {
   background-color: #724CAF;
@@ -218,15 +226,15 @@ a {
   border-bottom-left-radius: 10px;
 }
 
-.review-header {
+.review-header, .review-row {
   width: 35%;
 }
 
-.genre-header {
+.genre-header, .genre-row {
   width: 15%;
 }
 
-.rating-header {
+.rating-header, .rating-row {
   width: 15%;
 }
 
@@ -243,18 +251,6 @@ a {
   width: 10%;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
-}
-
-.review-row {
-  width: 35%;
-}
-
-.genre-row {
-  width: 15%;
-}
-
-.rating-row {
-  width: 15%;
 }
 
 .length-row {
@@ -500,4 +496,159 @@ select {
   background-color: rgb(37, 0, 139);
   color: white;
   font-size: 1.2rem;
+}
+
+
+@media only screen and (max-width: 480px){
+.filter-container{
+  display:none;
+}
+
+#filter-bar{
+  display:flex;
+  flex-direction:row;
+  padding:0 1.2rem;
+}
+
+.filter-option{
+  margin: 10px;
+}
+
+#main-page-wrapper{
+  display:flex;
+  flex-direction:column;
+}
+
+#content-div{
+  margin:auto;
+  width:97%;
+  height:90%;
+  overflow-y: hidden;
+}
+
+#content-table {
+  border-collapse: collapse;
+  font-weight: bold;
+  margin: 10px;
+}
+
+#my-content{
+  padding:1rem 1.5rem 0.5rem;
+  margin: auto;
+}
+
+.length-header, .length-row{
+  display:none;
+}
+
+#logo{
+  width:225px;
+}
+
+.add-content-text{
+  display:none;
+}
+
+.add-content-icon{
+  display:block;
+  }
+
+#add-content button{
+  width:3em;
+  height: 60%;
+  font-size:2em;
+}
+
+#add-content{
+  width:1em;
+  padding:0;
+}
+
+#navigation-bar{
+  padding:0 1rem;
+}
+
+#table-title{
+  padding: 0.75rem 1rem 0.25rem;
+  
+}
+.headers {
+  text-align: left;
+  position: sticky;
+  top: 0;
+  background-color: #061735;
+  padding: 0.5rem;
+  font-weight: bold;
+  
+}
+
+.review-header, .review-row {
+  width: 38%;
+}
+
+.review-row { 
+  font-size:0.8rem;
+  font-weight: normal;
+}
+
+.genre-header {
+  width: 15%;
+}
+
+.genre-row {
+  width: 15%;
+  font-size:0.8rem;
+  font-weight: normal;
+}
+
+.rating-header {
+  width: 15%;
+  border-bottom-right-radius: 10px;
+}
+
+.rating-row {
+  width: 15%;
+  font-size:0.8rem;
+  font-weight: normal;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.icon-row {
+  width: 10%;
+}
+
+.type-header{
+  width:7%;
+  padding-left:1rem;
+}
+
+.type-row {
+  font-size:0.8rem;
+  width: 7%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  font-weight: normal;
+  padding-left:1rem;
+}
+
+.movie-title {
+  font-size: 1em;
+  padding-bottom: 0.2rem;
+  font-weight: bold;
+}
+
+#content-popup{
+  width:90%;
+}
+
+#content-form{
+  width:100%;
+}
+
+
+.form-label{
+  width:10%;
+}
+
 }
