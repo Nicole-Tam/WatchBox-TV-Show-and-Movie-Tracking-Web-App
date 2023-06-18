@@ -24,7 +24,7 @@ I then made a custom scrollbar with the help of <a href="https://www.w3schools.c
 ![Alt text](readme-assets/devtools.png)
 
 
-However, I ran into some problems when making the table. I realised that for the website to feature the design I wanted it to feature, making each row into individual sections would be better, although more tedious. This was because of the way tables work, I would be unable to customize the gap between rows, and would have to find and test different workarounds to make each row have an individual border radius. For me, making separate divs made more sense, as the CSS for tables and HTML also gets too messy for my liking. I read that tables are more <a href="https://stackoverflow.com/questions/2617895/actual-table-vs-div-table">semantically correct</a> for tabular data, but my tracker doesn't exactly show tabular data.
+However, I ran into some problems when making the table. I realised that for the website to feature the design I wanted it to feature, making each row into individual sections would be better, although more tedious. This was because of the way tables work, I would be unable to customize the gap between rows, and would have to find and test different workarounds to make each row have an individual border radius. For me, making separate divs made more sense, as the CSS for tables and HTML also gets too messy for my liking. But I read that tables are more <a href="https://stackoverflow.com/questions/2617895/actual-table-vs-div-table">semantically correct</a> for tabular data, and even though my data isn't EXACTLY tabular, I decided to try using tables, since I've actually never worked with them before.
 
 ## Pop Up Development
 
@@ -34,6 +34,11 @@ https://www.youtube.com/watch?v=MBaw_6cPmAw
 I originally wanted to use CSS Grid, but felt more confident in my ability to use flexbox to style it the way I liked. Regardless, it was a similar layout to css grid, with the divs separating each row. In the future, I would probably use CSS grid because it takes up less space in the code, but for something small like this, I think it's legible.
 
 There was also an issue with the genre select. If I allowed for multiple select, it would appear as a scrollable list, and not a dropdown, as dropdown menus only allow for one option, something I had not anticipated when making my design. Thus, I decided to go with the scrollable list as only one genre select would make the web app less functional.
+
+As for the movie and TV show buttons, disabling the circle and using css styling to create the same design I wanted in my prototype
+
+
+
 ## Left off vs Length
 
 The original idea for TV shows was for the tracker to show the user which season/episode they are on. However, it didn't make much sense for it to track which episode viewers are on when apps like Netflix and DisneyPlus already save that data, and the entered data is unable to be edited, only viewed back. Hence, I changed the left off label to show the length of the show instead.
@@ -80,7 +85,7 @@ Would've been much easier, despite needing to transition what I already had to s
 ## Use <b> to bold, use <strong> to semantically emphasise something while also bolding it
 It's in the name, but I thought the two were interchangable and mostly used whichever one I felt like. Semantic HTML is the gift that keeps on giving!
 
-## Shift + Alt + F formats your code for you!
+## Shift + Alt + I formats your code for you!
 
 
 
@@ -97,3 +102,4 @@ http://meyerweb.com/eric/tools/css/reset/
 <br>https://stackoverflow.com/questions/38870246/html-css-change-color-of-select-arrow
 <br>https://www.youtube.com/watch?v=RzLX3bVtssY
 <br>https://stackoverflow.com/questions/3072597/semantically-accurate-html5-element-for-a-modal-dialog
+<br>https://stackoverflow.com/questions/62155892/how-to-add-border-to-label-when-radio-button-is-selected
