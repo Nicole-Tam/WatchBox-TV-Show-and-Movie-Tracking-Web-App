@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <title>Content Tracker</title>
-  <link href="styles.css" rel="stylesheet" type="text/css"/>
+  <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -20,22 +20,31 @@
   </nav>
 
   <aside id="content-popup-background">
-    <div id="content-popup">
+    <aside id="content-popup">
       <form id="content-form">
         <div class="form-title">
           <h2>Add Content</h2>
           <div id="form-close"><a href="#">&#10006;</a></div>
         </div>
         <div class="form-content"><label class="form-label" for="type">Content Type:</label>
-          <div class="form-input"><button id="movie-button" data-type="movie"><img src="assets/Movie Button.svg" id="movie-icon" alt="movie icon">Movie</button>
-            <button id="tvshow-button" data-type="tvshow">TV Show</button>
+          <div id="form-input-radio" class="form-input" >
+            <label id="movie-button">
+              <input type="radio" name="media-type" value="movie" class="active-button">
+              <img src="assets/Movie Button.svg" id="movie-icon" alt="movie icon">
+              Movie
+            </label>
+            <label id="tvshow-button">
+              <input type="radio" name="media-type" value="tvshow" class="active-button">
+              <img src="assets/tvshow.svg" id="tvshow-icon" alt="tv show icon">
+              TV Show
+            </label>
           </div>
         </div>
         <div class="form-content"><label for="title">Title:</label>
           <div class="form-input"><input type="text" name="title" class="title-input" required></div>
         </div>
         <div class="form-content"><label for="genre">Genre:</label>
-          <div class="form-input"><select name="genre"  id="genre-select" multiple>
+          <div class="form-input"><select name="genre" id="genre-select" multiple>
               <option value="romance">Romance</option>
               <option value="thriller">Thriller</option>
               <option value="family">Family</option>
@@ -44,10 +53,12 @@
             </select></div>
         </div>
         <div class="form-content"><label for="description">Description:</label>
-          <div class="form-input"><textarea type="text" id="description" name="description" class="text-field-large"></textarea></div>
+          <div class="form-input"><textarea type="text" id="description" name="description"
+              class="text-field-large"></textarea></div>
         </div>
         <div class="form-content"><label for="review">Review:</label>
-          <div class="form-input"><textarea type="text" id="review" name="review" class="text-field-large"></textarea></div>
+          <div class="form-input"><textarea type="text" id="review" name="review" class="text-field-large"></textarea>
+          </div>
         </div>
         <div class="form-content"><label for="rating">Rating:</label>
           <div class="form-input"><select id="rating" name="rating">
@@ -65,7 +76,8 @@
             </select> &nbsp out of 10</div>
         </div>
         <div class="form-content" id="runtime"><label for="runtime">Runtime:</label>
-          <div class="form-input" id="runtime-field"><input type="number" id="runtime" name="runtime" min="1" max="1000"> &nbsp Minutes</div>
+          <div class="form-input" id="runtime-field"><input type="number" id="runtime" name="runtime" min="1"
+              max="1000"> &nbsp Minutes</div>
         </div>
         <div class="form-content" id="show-length"><label for="show-length">Show Length:</label>
           <div class="form-input" id="show-input"><label for="seasons">Seasons:&nbsp </label>
@@ -91,21 +103,17 @@
           </div>
         </div>
         <div class="form-content">
-        <div class="form-input-save">
-        <button type="submit" id="save">Save</button>
-      </div>
+          <div class="form-input-save">
+            <button type="submit" id="save">Save</button>
+          </div>
         </div>
-        </form>
-    </div>
-    
+      </form>
+    </aside>
   </aside>
-
-
-
 
   <header id="my-content">My Content</header>
 
-  <section id="main-page-wrapper">
+  <main id="main-page-wrapper">
     <ul id="filter-bar">
       <li class="filter-option" data-category="all">All</li>
       <li class="filter-option" data-category="movies">Movies</li>
@@ -120,36 +128,30 @@
       </nav>
     </ul>
 
-    <main id="content-div">
+    <section id="content-div">
       <table id="content-table">
         <thead id="sticky-table">
           <caption id="table-title">Movies TV Shows PLACEHOLDER</caption>
-          <tr id="table-header">  
-            <th class="headers" id="type-header">Type</th>
-            <th class="headers" id="review-header">Review</th>
-            <th class="headers" id="genre-header">Genre</th>
-            <th class="headers" id="rating-header">Rating</th>
-            <th class="headers" id="length-header">Length/Runtime</th>
+          <tr id="table-header">
+            <th class="headers type-header">Type</th>
+            <th class="headers review-header">Review</th>
+            <th class="headers genre-header">Genre</th>
+            <th class="headers rating-header">Rating</th>
+            <th class="headers length-header">Length/Runtime</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-          <td class="headers" id="type-header"></td>
-          <td class="movie-title" id="type-header" colspan="4">Title</td>
-        </tr>
-          <tr>
-          <td class="headers" id="type-header">Type</td>
-          <td class="headers" id="review-header">Review</td>
-          <td class="headers" id="genre-header">Genre</td>
-          <td class="headers" id="rating-header">Rating</td>
-          <td class="headers" id="length-header">Length/Runtime</td>
-        </tr>
+          <tr class="table-grid row-bottom">
+            <td class="headers type-header"></td>
+            <td class="headers review-header"><h3 class="movie-title">Title</h3>Reviewasdfffffffffff qweeeeeeeeeeeee</td>
+            <td class="headers genre-header">Genrefasdfadfsss qweeeeeeeeeee</td>
+            <td class="headers rating-header">Ratingasdfffffffffff qweeeeeeeeee</td>
+            <td class="headers length-header">Length/Runtime qweeeeeeeeeeeeeeee</td>
+          </tr>
         </tbody>
-
-
       </table>
-    </main>
-  </section>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 
