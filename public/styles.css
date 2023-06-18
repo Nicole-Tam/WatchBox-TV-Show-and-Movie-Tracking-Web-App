@@ -191,22 +191,24 @@ body {
   overflow-x: none;
   border-collapse: collapse;
   font-weight: bold;
+  margin:10px;
 }
+
 
 .headers {
   /*https://css-tricks.com/position-sticky-and-table-headers*/
   text-align: left;
   position: sticky;
   top: 0;
-  width: 100%;
   background-color: #061735;
-  padding: 2rem 1.5rem;
+  padding: 1rem 1.5rem;
   font-weight: bold;
 }
 
 .type-header {
   width: 10%;
   border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .review-header {
@@ -222,12 +224,9 @@ body {
 }
 
 .length-header {
-  width: 10%;
+  width: 15%;
   border-bottom-right-radius: 10px;
-}
-
-.review-column {
-  width: 50%;
+  border-top-right-radius: 10px;
 }
 
 .icon-row {
@@ -235,7 +234,6 @@ body {
 }
 
 #table-title {
-  float: left;
   font-size: 2em;
   background-color: #061735;
   width: 100%;
@@ -268,9 +266,8 @@ body {
 }
 
 table tbody{
-  margin-bottom:10px;
   box-shadow: 0 0 4px rgba(255, 255, 255, 1);
-  border-radius:10px;
+  border-radius:10px;  
 }
 
 #content-div::-webkit-scrollbar {
@@ -311,11 +308,6 @@ table tbody{
 
 input {
   border-radius:0.3rem;
-}
-
-
-#content-table {
-  display: block;
 }
 
 h2 {
