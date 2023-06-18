@@ -27,7 +27,7 @@
           <div id="form-close"><a href="#">&#10006;</a></div>
         </div>
         <div class="form-content"><label class="form-label" for="type">Content Type:</label>
-          <div id="form-input-radio" class="form-input" >
+          <div id="form-input-radio" class="form-input">
             <label id="movie-button">
               <input type="radio" name="media-type" value="movie" class="active-button">
               <img src="assets/Movie Button.svg" id="movie-icon" alt="movie icon">
@@ -115,38 +115,41 @@
 
   <main id="main-page-wrapper">
     <ul id="filter-bar">
-      <li class="filter-option" data-category="all">All</li>
-      <li class="filter-option" data-category="movies">Movies</li>
+      <li class="filter-option" data-category="all"><a href=#>All</a></li>
+      <li class="filter-option" data-category="favourites"><a href=#>Favourites</a></li>
+      <li class="filter-option" data-category="movies"><a href=#>Movies</a></li>
       <nav class="filter-container">
-        <li class="subfilter-option" data-category="watched-movies">Watched</li>
-        <li class="subfilter-option" data-category="to-watch-movies">To Watch</li>
+        <li class="subfilter-option" data-category="watched-movies"><a href=#>Watched</a></li>
+        <li class="subfilter-option" data-category="to-watch-movies"><a href=#>To Watch</a></li>
       </nav>
-      <li class="filter-option" data-category="tvshows">TV Shows</li>
+      <li class="filter-option" data-category="tvshows"><a href=#>TV Shows</a></li>
       <nav class="filter-container">
-        <li class="subfilter-option" data-category="watched-tvshows">Watched</li>
-        <li class="subfilter-option" data-category="to-watch-tvshows">To Watch</li>
+        <li class="subfilter-option" data-category="watched-tvshows"><a href=#>Watched</a></li>
+        <li class="subfilter-option" data-category="to-watch-tvshows"><a href=#>To Watch</a></li>
       </nav>
     </ul>
 
     <section id="content-div">
       <table id="content-table">
-          <tr id="table-header">
-            <th class="headers" id="table-title" colspan="5">My Movies</th>
+        <tr id="table-header">
+          <th class="headers" id="table-title" colspan="5">My Movies</th>
+        </tr>
+        <tr>
+          <th class="headers type-header">Type</th>
+          <th class="headers review-header">Review</th>
+          <th class="headers genre-header">Genre</th>
+          <th class="headers rating-header">Rating</th>
+          <th class="headers length-header">Length/Runtime</th>
+        </tr>
+        <tbody>
+          <tr class="whitespace">
+            <td colspan="5"></td>
           </tr>
-          <tr>
-            <th class="headers type-header">Type</th>
-            <th class="headers review-header">Review</th>
-            <th class="headers genre-header">Genre</th>
-            <th class="headers rating-header">Rating</th>
-            <th class="headers length-header">Length/Runtime</th>
-          </tr>
-          <tbody>
-            <tr class="whitespace">
-              <td colspan="5"></td>
-            </tr>
           <tr class="display-content">
             <td class="headers type-row">qweeeeeee</td>
-            <td class="headers review-row"><h3 class="movie-title">Title</h3>Reviewasdfffffffffff qweeeeeeeeeeeee</td>
+            <td class="headers review-row">
+              <h3 class="movie-title">Title</h3>Reviewasdfffffffffff qweeeeeeeeeeeee
+            </td>
             <td class="headers genre-row">Genrefasdfadfsss qweeeeeeeeeee</td>
             <td class="headers rating-row">Ratingasdfffffffffff qweeeeeeeeee</td>
             <td class="headers length-row">Length/Runtime qweeeeeeeeeeeeeeee</td>
