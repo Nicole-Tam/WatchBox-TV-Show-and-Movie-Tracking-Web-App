@@ -193,7 +193,10 @@ body {
   font-weight: bold;
   margin:10px;
 }
-
+.whitespace{
+background-color: transparent;
+height:10px;
+}
 
 .headers {
   /*https://css-tricks.com/position-sticky-and-table-headers*/
@@ -208,7 +211,6 @@ body {
 .type-header {
   width: 10%;
   border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
 }
 
 .review-header {
@@ -226,11 +228,34 @@ body {
 .length-header {
   width: 15%;
   border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
 .icon-row {
   width: 10%;
+}
+
+.type-row {
+  width: 10%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.review-row {
+  width: 35%;
+}
+
+.genre-row {
+  width: 15%;
+}
+
+.rating-row {
+  width: 15%;
+}
+
+.length-row {
+  width: 15%;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 #table-title {
@@ -265,7 +290,7 @@ body {
   font-weight: bold;
 }
 
-table tbody{
+.display-content{
   box-shadow: 0 0 4px rgba(255, 255, 255, 1);
   border-radius:10px;  
 }
