@@ -159,7 +159,8 @@ body {
 #my-content {
   font-size: 3em;
   font-weight: bold;
-  margin: 2rem 24rem 1.5rem;
+  padding: 2rem 20% 1.5rem;
+  margin:auto;
 }
 
 #main-page-wrapper {
@@ -445,15 +446,22 @@ select {
 
 #show-length {
   display: none;
-  align-items: center;
   flex-wrap: nowrap;
   justify-content: flex-end;
 }
 
-#movie-icon,
-#tvshow-icon {
+#seasons, #episodes{
+  margin-right:10px;
+}
+
+#movie-icon {
   scale: 180%;
-  margin: auto;
+  padding:4px;
+}
+
+#tvshow-icon {
+  scale: 220%;
+  padding:5px;
 }
 
 #movie-button {
@@ -464,12 +472,13 @@ select {
   font-size: 1.2rem;
 }
 
-#movie-button {
+#movie-button-checked {
   width: 48%;
   border-radius: 0.3rem;
-  background-color: rgb(255, 255, 255);
-  color: #26133E;
+  background-color: #23509F;
+  color: white;
   font-size: 1.2rem;
+  box-shadow: 0 0 5px white;
 }
 
 #tvshow-button {
@@ -481,23 +490,25 @@ select {
   font-size: 1.2rem;
 }
 
+#tvshow-button-checked {
+  width: 48%;
+  padding: 0 0.5rem;
+  border-radius: 0.3rem;
+  background-color: 23509F;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 0 5px white;
+}
+
 #form-input-radio {
   text-align: center;
   display: flex;
   justify-content: space-between;
 }
 
-[type='radio'] {
+#form-input-radio [type='radio'] {
   display: none;
 }
-
-.active-button:checked+label {
-  border-radius: 0.3rem;
-  background-color: rgb(37, 0, 139);
-  color: white;
-  font-size: 1.2rem;
-}
-
 
 @media only screen and (max-width: 480px){
 .filter-container{
@@ -639,16 +650,25 @@ select {
 }
 
 #content-popup{
-  width:90%;
+  width:95%;
+  padding:0.75em;
 }
 
 #content-form{
   width:100%;
 }
 
-
-.form-label{
+.show-input{
   width:10%;
+}
+
+.form-input{
+  width:100%;
+}
+
+#seasons, #episodes{
+  width:15%;
+  margin-right:10px;
 }
 
 }
