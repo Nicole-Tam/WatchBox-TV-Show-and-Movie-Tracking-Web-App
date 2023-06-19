@@ -35,9 +35,14 @@ I originally wanted to use CSS Grid, but felt more confident in my ability to us
 
 There was also an issue with the genre select. If I allowed for multiple select, it would appear as a scrollable list, and not a dropdown, as dropdown menus only allow for one option, something I had not anticipated when making my design. Thus, I decided to go with the scrollable list as only one genre select would make the web app less functional.
 
-As for the movie and TV show buttons, disabling the circle and using css styling to create the same design I wanted in my prototype
+As for the movie and TV show buttons, disabling the radio buttons and using css styling to create the same design I wanted in my prototype, whilst javascript helped me change the colours when the radio buttons were 'checked', because when the radio buttons are disabled, :checked doesn't work as a css selector.
+
+For the available genres, I allowed for users to select multiple, but only put around 14 different genre options, as most movies fit under at least one given category, and too many genres would get confusing, especially on mobile input.
 
 
+## Detail Pop Up Development
+
+The development of my details popup was pretty similar to the popup previously, with changed ids to allow for javascript to send task details to those specific containers.
 
 ## Left off vs Length
 
@@ -103,3 +108,4 @@ http://meyerweb.com/eric/tools/css/reset/
 <br>https://www.youtube.com/watch?v=RzLX3bVtssY
 <br>https://stackoverflow.com/questions/3072597/semantically-accurate-html5-element-for-a-modal-dialog
 <br>https://stackoverflow.com/questions/62155892/how-to-add-border-to-label-when-radio-button-is-selected
+<br>https://stackoverflow.com/questions/14589193/clearing-my-form-inputs-after-submission

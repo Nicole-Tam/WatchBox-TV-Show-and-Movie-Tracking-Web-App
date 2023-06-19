@@ -19,7 +19,7 @@
     </nav>
   </nav>
 
-  <aside id="content-popup-background">
+  <aside class="content-popup-background" id="content-popup-background">
     <aside id="content-popup">
       <form id="content-form">
         <div class="form-title">
@@ -38,18 +38,27 @@
               <img src="assets/tvshow.svg" id="tvshow-icon" alt="tv show icon">
               TV Show
             </label>
-          </div>
+          </div>  
         </div>
         <div class="form-content"><label for="title">Title:</label>
           <div class="form-input"><input type="text" name="title" class="title-input" required></div>
         </div>
         <div class="form-content"><label for="genre">Genre:</label>
-          <div class="form-input"><select name="genre" id="genre-select" multiple>
-              <option value="romance">Romance</option>
-              <option value="thriller">Thriller</option>
+          <div class="form-input"><select name="genre" id="genre-select">
+              <option value="action">Action</option>
+              <option value="action">Adventure</option>
+              <option value="comedy">Comedy</option>
+              <option value="drama">Drama</option>
+              <option value="fantasy">Fantasy</option>
               <option value="family">Family</option>
               <option value="horror">Horror</option>
-              <option value="comedy">Comedy</option>
+              <option value="musical">Musical</option>
+              <option value="mystery">Mystery</option>
+              <option value="romance">Romance</option>
+              <option value="science-fiction">Science Fiction</option>
+              <option value="sports">Sports</option>
+              <option value="thriller">Thriller</option>
+              <option value="western">Western</option>
             </select></div>
         </div>
         <div class="form-content"><label for="description">Description:</label>
@@ -81,9 +90,9 @@
         </div>
         <div class="form-content" id="show-length"><label for="show-length">Show Length:</label>
           <div class="form-input" id="show-input"><label for="seasons">Seasons:&nbsp </label>
-            <input type="text" id="seasons" name="seasons" min="1" max="100000" required>
+            <input type="text" id="seasons" name="seasons" min="1" max="100000">
             <label for="episodes">Episodes:&nbsp</label>
-            <input type="text" id="episodes" name="episodes" min="1" max="100000" required>
+            <input type="text" id="episodes" name="episodes" min="1" max="100000">
           </div>
         </div>
         <div class="form-content"><label for="add-to-list">Add to:</label>
@@ -115,17 +124,17 @@
 
   <main id="main-page-wrapper">
     <ul id="filter-bar">
-      <li class="filter-option" data-category="all"><a href=#>All</a></li>
-      <li class="filter-option" data-category="favourites"><a href=#>Favourites</a></li>
-      <li class="filter-option" data-category="movies"><a href=#>Movies</a></li>
+      <li class="filter-option" data-category="all" id="filter-all"><a href=#>All</a></li>
+      <li class="filter-option" data-category="favourites" id="filter-favourites"><a href=#>Favourites</a></li>
+      <li class="filter-option" data-category="movies" id="filter-movies"><a href=#>Movies</a></li>
       <nav class="filter-container">
-        <li class="subfilter-option" data-category="watched-movies"><a href=#>Watched</a></li>
-        <li class="subfilter-option" data-category="to-watch-movies"><a href=#>To Watch</a></li>
+        <li class="subfilter-option" data-category="watched-movies" id="filter-watched-movies"><a href=#>Watched</a></li>
+        <li class="subfilter-option" data-category="to-watch-movies" id="filter-to-watch-movies"><a href=#>To Watch</a></li>
       </nav>
-      <li class="filter-option" data-category="tvshows"><a href=#>TV Shows</a></li>
+      <li class="filter-option" data-category="tvshows" id="filter-shows"><a href=#>TV Shows</a></li>
       <nav class="filter-container">
-        <li class="subfilter-option" data-category="watched-tvshows"><a href=#>Watched</a></li>
-        <li class="subfilter-option" data-category="to-watch-tvshows"><a href=#>To Watch</a></li>
+        <li class="subfilter-option" data-category="watched-tvshows" id="filter-watched-shows"><a href=#>Watched</a></li>
+        <li class="subfilter-option" data-category="to-watch-tvshows" id="filter-to-watch-shows"><a href=#>To Watch</a></li>
       </nav>
     </ul>
 
@@ -144,19 +153,57 @@
         <tbody>
           <tr class="whitespace">
             <td colspan="5"></td>
-          </tr>
-          <tr class="display-content">
-            <td class="headers type-row">qweeeeeee</td>
-            <td class="headers review-row">
-              <h3 class="movie-title">Title</h3>Reviewasdfffffffffff qweeeeeeeeeeeee
-            </td>
-            <td class="headers genre-row">Genrefasdfadfsss qweeeeeeeeeee</td>
-            <td class="headers rating-row">Ratingasdfffffffffff qweeeeeeeeee</td>
-            <td class="headers length-row">Length/Runtime qweeeeeeeeeeeeeeee</td>
-          </tr>
       </table>
     </section>
   </main>
+
+  <aside class="content-popup-background" id="detail-overlay">
+    <aside id="detail-popup">
+        <div class="form-title">
+          <h2 class="content-name">Content Name</h2>
+          <div id="detail-close"><a href="#">&#10006;</a></div>
+        </div>
+        <div class="form-content"><label class="form-label" for="type">Type:</label>
+          <div id="content-type" class="form-input">Movie Name</div>  
+        </div>
+        <div class="form-content"><label for="title">Title:</label>
+          <div class="form-input content-title">qweqwe</div>
+        </div>
+        <div class="form-content"><label for="genre">Genre:</label>
+          <div class="form-input content-genre">qweqweqwe</div>
+        </div>
+        <div class="form-content"><label for="description">Description:</label>
+          <div class="form-input content-description">qweqweqwe</div>
+        </div>
+        <div class="form-content"><label for="review">Review:</label>
+          <div class="form-input content-review">qweqweqwe</div>
+        </div>
+        <div class="form-content"><label for="rating">Rating:</label>
+          <div class="form-input content-rating">ratings</div>
+        </div>
+        <div class="form-content" id="runtime"><label for="runtime">Runtime:</label>
+          <div class="form-input content-runtime" id="runtime-field"></div>
+        </div>
+        <div class="form-content" id="show-length"><label for="show-length">Show Length:</label>
+          <div class="form-input" id="show-input"><label for="seasons">Seasons:&nbsp </label>
+            <input type="text" id="seasons" name="seasons" min="1" max="100000">
+            <label for="episodes">Episodes:&nbsp</label>
+            <input type="text" id="episodes" name="episodes" min="1" max="100000">
+          </div>
+        </div>
+        <div class="form-content"><label for="add-to-list">Groups:</label>
+        </div>
+        <div class="form-content">
+          <div class="form-input-delete">
+            <button type="submit" id="delete">Delete</button>
+          </div>
+        </div>
+    </aside>
+  </aside>
+
+
+
+
   <script src="script.js"></script>
 </body>
 
