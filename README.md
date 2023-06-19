@@ -3,7 +3,7 @@
 My Web App “WatchBox” is a tracking app for TV shows and Movies. It’s designed to help movie and TV show enthusiasts keep track of their content, and can be used to sort their current, past and future watching preferences. It serves as a digital diary for their viewing entertainment, allowing for users to maintain a record of their favourite movies and tv shows, ratings, descriptions, reviews, genres, watched and to watch. It’s suitable for all kinds of shows and movies, as well as people of all ages, due to it’s simplistic and user-centered design. “Watchbox” aims to help users seamlessly log and track their watch habits.
 
 ## <u>Things to note</u>
-Parcel is installed for future versions, but please run this current version on Node.js.
+Parcel is installed for future versions, but please run this current version on Node.js (npm run start).
 
 ## <u>HTML & CSS Stages</u>
 ## Initial Development
