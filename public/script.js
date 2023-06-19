@@ -44,3 +44,26 @@ tvshowButton.addEventListener("click", function () { //don't show tv show option
   movieButton.id = "movie-button";
 });
 
+
+const form = document.querySelector('#content-form');
+
+form.addEventListener("submit", function (event) {
+event.preventDefault();
+
+if (form.elements.mediaType.value === "movie"){
+addMovie(
+    form.elements.mediaType.value,
+    form.elements.title.value,
+    form.elements.genre.value,
+    form.elements.description.value,
+    form.elements.review.value,
+    form.elements.rating.value,
+    form.elements.runtime.value,
+    form.elements.favorites.value,
+    form.elements.watched.value,
+    form.elements.toWatch.value
+)
+
+}
+})
+
