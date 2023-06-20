@@ -164,8 +164,8 @@ function showItem(item){
     td5.innerHTML='Season: ' + item.seasons +"<br>" + 'Episode: ' + item.episodes;
   }
   
-  var whitespace= document.createElement("tr");
-  var whitespace= document.createElement("td");
+  var whitespace = document.createElement("tr");
+  var whitespacetd = document.createElement("td");
   whitespace.classList.add("whitespace");
   whitespacetd.setAttribute("colspan", 5);
   whitespace.appendChild(whitespacetd);
