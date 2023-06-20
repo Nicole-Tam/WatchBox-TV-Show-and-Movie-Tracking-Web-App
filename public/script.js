@@ -163,7 +163,13 @@ function showItem(item){
     icon.setAttribute("src","assets/tvshow.svg")
     td5.innerHTML='Season: ' + item.seasons +"<br>" + 'Episode: ' + item.episodes;
   }
-}
+  
+  var whitespace= document.createElement("tr");
+  whitespace.add.classList("whitespace");
+  whitespacetd.setAttribute("colspan", 5);
+  whitespace.appendChild(whitespacetd);
+  document.getElementById("content-table").children.item(1).appendChild(whitespace);
+ }
 
 
  function getMovieData(){

@@ -117,3 +117,4 @@ http://meyerweb.com/eric/tools/css/reset/
 <br>https://stackoverflow.com/questions/14589193/clearing-my-form-inputs-after-submission
 <br>https://www.w3schools.com/jsref/jsref_operators.asp
 <br>https://scrimba.com/scrim/cEr7veuE
+<br>https://developer.mozilla.org/en-US/docs/Web/API/Element
