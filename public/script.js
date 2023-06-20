@@ -1,4 +1,4 @@
-refreshdisplay(); //refreshes browser content so that preexisting content shows when browser is opened, or else it would show with no data
+refreshdisplay(); //refreshes browser content so that preexisting content shows when browser is opened.
 
 const addButton = document.getElementById("add-content-button");
 const overlay = document.getElementById("content-popup-background");
@@ -117,17 +117,70 @@ if (type === "movie"){
   item.seasons = form.elements['seasons'].value;
   item.episodes = form.elements['episodes'].value;
 }
+  }
 
-id = id + 1
+id = id + 1 //so each item has different id (for deletion)
 
-var mymovies = getMovieData();
-console.log("mymovies",mymovies)
-if (!Array.isArray(mymovies)) { mymovies = [] }
-mymovies.push(item)
-setMovieData(mymovies)
+var myMovies = getMovieData();
+console.log("myMovies",myMovies)
+if (!Array.isArray(myMovies)) { myMovies = [] }
+myMovies.push(item)
+setMovieData(myMovies)
 
-refreshdisplay()
+function showItem(item){
+  var tr = document.createElement("tr");
+  var td1 = document.createElement("td");
+  var td2 = document.createElement("td");
+  var td3 = document.createElement("td");
+  var td4 = document.createElement("td");
+  var td5 = document.createElement("td");
+  var icon = document.createElement("img")
+  td1.textContent="";
+  td1.appendChild(icon);
+  td1.classList.add("icon")
+  var h2=document.createElement("h2");
+  h2.textContent=item.name;
+  td2.appendChild(h2)
+  var review = document.createElement("span");
+  review.textContent = item.review;
+  td2.appendChild(review);
+  td3.textContent=item.genre.slice(0,1).toUpperCase()+item.genre.slice(1);  //turns first letter to upper case
+  td4.textContent=item.rating;
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  tr.appendChild(td3);
+  tr.appendChild(td4);
+  tr.appendChild(td5);
+  document.getElementById("content-table").children.item(1).appendChild(tr);
+  
+  tr.addEventListener("click", showDetails)
+  tr.setAttribute("data-id", item.id)
+
+  if (item.mediatype === "movie"){
+    icon.setAttribute("src","assets/movie-icon.svg")
+     td5.innerHTML=item.runtime + " Minutes";
+  } else {
+    icon.setAttribute("src","assets/tvshow.svg")
+    td5.innerHTML='Season: ' + item.seasons +"<br>" + 'Episode: ' + item.episodes;
+  }
 }
+
+
+ function getMovieData(){
+  return (JSON.parse(localStorage.getItem("myMovieData")) ?? []); //so that refreshDisplay doesn't show an error when myMovieData is empty
+  
+ }
+
+ function setMovieData(myMovies){
+  localStorage.setItem("myMovieData", JSON.stringify(myMovies));
+ }
+
+ function deleteItem(e) {
+    var id = Number(e.target.getAttribute("data-id"));
+    var myMovies = getMovieData();
+    myMovies = myMovies.filter(m => m.id !== id);
+    setMovieData(myMovies);
+  }
 
 
 function refreshdisplay() {
@@ -139,5 +192,40 @@ function refreshdisplay() {
   getMovieData().map(showItem);
 }
 
+document.getElementById("filter-all").addEventListener("click", filterbyAll)
+document.getElementById("filter-favourites").addEventListener("click", filterbyFavourites)
+document.getElementById("filter-movies").addEventListener("click", filterbyMovies)
+document.getElementById("filter-to-watch-movies").addEventListener("click", filterbyToWatchMovies)
+document.getElementById("filter-watched-movies").addEventListener("click", filterbyWatchedMovies)
+document.getElementById("filter-shows").addEventListener("click", filterbyShows)
+document.getElementById("filter-to-watch-shows").addEventListener("click", filterbyToWatchShows)
+document.getElementById("filter-watched-shows").addEventListener("click", filterbyWatchedShows)
+
+function filterbyAll() { filterbyPredicate(x => true) }
+function filterbyFavourites() { filterbyPredicate(x => x.favourites === true) }
+function filterbyMovies() { filterbyPredicate(x => x.mediatype === "movie") }
+function filterbyToWatchMovies() { filterbyPredicate(x => x.toWatch === true && x.mediatype === "movie") }
+function filterbyWatchedMovies() { filterbyPredicate(x => x.watched === true && x.mediatype === "movie") }
+function filterbyShows() { filterbyPredicate(x => x.mediatype === "tvshow") }
+function filterbyToWatchShows() { filterbyPredicate(x => x.toWatch === true && x.mediatype === "tvshow") }
+function filterbyWatchedShows() { filterbyPredicate(x => x.watched === true && x.mediatype === "tvshow")}
 
 
+function filterbyPredicate(predicate) {
+  var shows = getMovieData();
+  var show = shows.filter(x => predicate(x)).map(x => x.id)
+  var showlist = document.getElementById("content-table").children.item(1);
+  console.log(show, "show")
+  childrenasArray(showlist).map(divitem => {
+    divitem.style.display = show.includes(Number(divitem.getAttribute("data-id"))) ? "block" : "none"
+    //relies on the trs having an data-show-id attribute
+  })
+};
+
+function childrenasArray(element) { //grabs children of a div, but in an array, because it normally is a HTML collection, that cannot be iterated over (i.e. used in a map/for each)
+  var xs = []
+  for (var i = 0; i < element.children.length; i++) {
+    xs.push(element.children.item(i))
+  }
+  return xs
+};

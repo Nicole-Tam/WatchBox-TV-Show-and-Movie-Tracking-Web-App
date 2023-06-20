@@ -39,6 +39,7 @@ As for the movie and TV show buttons, disabling the radio buttons and using css 
 
 For the available genres, I allowed for users to select multiple, but only put around 14 different genre options, as most movies fit under at least one given category, and too many genres would get confusing, especially on mobile input.
 
+After the dropdown was done, I used Javascript to store the data in local storage, making sure to have a simple name for each item. I could've called the items by its element.name, but I decided to use ['element-name'] as suggested <a href="https://stackoverflow.com/questions/2435525/best-practice-access-form-elements-by-html-id-or-name-attribute">here.</a>
 
 ## Detail Pop Up Development
 
@@ -47,6 +48,8 @@ The development of my details popup was pretty similar to the popup previously, 
 ## Left off vs Length
 
 The original idea for TV shows was for the tracker to show the user which season/episode they are on. However, it didn't make much sense for it to track which episode viewers are on when apps like Netflix and DisneyPlus already save that data, and the entered data is unable to be edited, only viewed back. Hence, I changed the left off label to show the length of the show instead.
+
+## 
 
 
 
@@ -77,7 +80,7 @@ I was also quite scared to commit changes, because I wanted to make sure everyth
 I didn't know what it was called before. All I knew from previous projects was that camelCase was easy to write, but difficult for me personally to read and debug. I actually thought kebab-case was the same as snake_case, but a kebab is much easier on my pinkies. I still used camelCase for the Javascript because I haven't seen anyone use kebab case in Javascript, and it helps me internally differentiate between my HTML and Javascript.
 
 ## USE DEVTOOLS!
-For my previous assignments, I rarely used google's developer tool. I would just go through the html and css again and again, reading lines until my eyes bled. It's so much easier finding where you accidentally made a div or made margins too big with dev tools. If only I could go back in time...
+For my previous assignment regarding html and css, I rarely used google's developer tool. I would just go through the html and css again and again, reading lines until my eyes bled. It's so much easier finding where you accidentally made a div or made margins too big with dev tools. If only I could go back in time...
 
 It's also useful in basically every other aspect of front-end development
 
@@ -92,7 +95,10 @@ It's in the name, but I thought the two were interchangable and mostly used whic
 
 ## Shift + Alt + I formats your code for you!
 
+## I already knew this, but I still feel like it's invaluable: console.log every single time I run into an error, paired with devtools ofc
 
+## ?? nullish coalescing operator
+My first instinct was to make an if statement to check if the localStorage parsed an empty array, but <a href="https://www.w3schools.com/jsref/jsref_operators.asp">this</a> already does it for you! It's also extremely useful in most situations as you can also make it return specific default values.
 
 ## Sources:
 http://meyerweb.com/eric/tools/css/reset/
@@ -109,3 +115,5 @@ http://meyerweb.com/eric/tools/css/reset/
 <br>https://stackoverflow.com/questions/3072597/semantically-accurate-html5-element-for-a-modal-dialog
 <br>https://stackoverflow.com/questions/62155892/how-to-add-border-to-label-when-radio-button-is-selected
 <br>https://stackoverflow.com/questions/14589193/clearing-my-form-inputs-after-submission
+<br>https://www.w3schools.com/jsref/jsref_operators.asp
+<br>https://scrimba.com/scrim/cEr7veuE
