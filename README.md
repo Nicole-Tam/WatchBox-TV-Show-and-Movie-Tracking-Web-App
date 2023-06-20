@@ -100,6 +100,7 @@ It's in the name, but I thought the two were interchangable and mostly used whic
 ## ?? nullish coalescing operator
 My first instinct was to make an if statement to check if the localStorage parsed an empty array, but <a href="https://www.w3schools.com/jsref/jsref_operators.asp">this</a> already does it for you! It's also extremely useful in most situations as you can also make it return specific default values.
 
+
 ## Sources:
 http://meyerweb.com/eric/tools/css/reset/
 <br>https://www.w3schools.com/tags/att_lang.asp

@@ -165,7 +165,8 @@ function showItem(item){
   }
   
   var whitespace= document.createElement("tr");
-  whitespace.add.classList("whitespace");
+  var whitespace= document.createElement("td");
+  whitespace.classList.add("whitespace");
   whitespacetd.setAttribute("colspan", 5);
   whitespace.appendChild(whitespacetd);
   document.getElementById("content-table").children.item(1).appendChild(whitespace);
