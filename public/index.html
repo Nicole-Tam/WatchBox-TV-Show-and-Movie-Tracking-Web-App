@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Content Tracker</title>
   <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
@@ -90,9 +91,9 @@
         </div>
         <div class="form-content" id="show-length"><label for="show-length">Show Length:</label>
           <div class="form-input" id="show-input"><label for="seasons">Seasons:&nbsp </label>
-            <input type="text" id="seasons" name="seasons" min="1" max="100000">
+            <input type="text" name="seasons" min="1" max="100000">
             <label for="episodes">Episodes:&nbsp</label>
-            <input type="text" id="episodes" name="episodes" min="1" max="100000">
+            <input type="text" name="episodes" min="1" max="100000">
           </div>
         </div>
         <div class="form-content"><label for="add-to-list">Add to:</label>
@@ -141,9 +142,9 @@
     <section id="content-div">
       <table id="content-table">
         <tr id="table-header">
-          <th class="headers" id="table-title" colspan="5">My Movies</th>
+          <th class="headers" id="table-title" colspan="5">My Content <span id="item-count"></span></th>
         </tr>
-        <tr>
+        <tr id="table-bodies">
           <th class="headers type-header">Type</th>
           <th class="headers review-header">Review</th>
           <th class="headers genre-header">Genre</th>
@@ -153,6 +154,8 @@
         <tbody>
           <tr class="whitespace">
             <td colspan="5"></td>
+            </tr>
+            </tbody>
       </table>
     </section>
   </main>
@@ -164,37 +167,36 @@
           <div id="detail-close"><a href="#">&#10006;</a></div>
         </div>
         <div class="form-content"><label class="form-label" for="type">Type:</label>
-          <div class="form-input">Movie Name</div>  
-        </div>
-        <div class="form-content"><label for="title">Title:</label>
-          <div class="form-input content-title">qweqwe</div>
+          <div class="detail-input"></div>  
         </div>
         <div class="form-content"><label for="genre">Genre:</label>
-          <div class="form-input content-genre">qweqweqwe</div>
+          <div class="detail-input content-genre"></div>
         </div>
         <div class="form-content"><label for="description">Description:</label>
-          <div class="form-input content-description">qweqweqwe</div>
+          <div class="detail-input content-description"></div>
         </div>
         <div class="form-content"><label for="review">Review:</label>
-          <div class="form-input content-review">qweqweqwe</div>
+          <div class="detail-input content-review"></div>
         </div>
         <div class="form-content"><label for="rating">Rating:</label>
-          <div class="form-input content-rating">ratings</div>
+          <div class="detail-input content-rating"></div>
         </div>
         <div class="form-content" id="runtime"><label for="runtime">Runtime:</label>
-          <div class="form-input content-runtime" id="runtime-field"></div>
+          <div class="detail-input content-runtime"></div>
         </div>
         <div class="form-content" id="show-length"><label for="show-length">Show Length:</label>
-          <div class="form-input" id="show-input"><label for="seasons">Seasons:&nbsp </label>
+          <div class="detail-input" id="show-input"><label for="seasons">Seasons:&nbsp </label>
             <input type="text" id="seasons" name="seasons" min="1" max="100000">
             <label for="episodes">Episodes:&nbsp</label>
             <input type="text" id="episodes" name="episodes" min="1" max="100000">
           </div>
         </div>
+        <div class="form-content"><label for="date">Date Added:</label>
+        </div>
         <div class="form-content"><label for="add-to-list">Groups:</label>
         </div>
         <div class="form-content">
-          <div class="form-input-delete">
+          <div class="detail-input-delete">
             <button type="submit" id="delete">Delete</button>
           </div>
         </div>
