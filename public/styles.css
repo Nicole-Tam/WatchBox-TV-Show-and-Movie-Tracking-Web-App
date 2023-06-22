@@ -89,7 +89,6 @@ video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
 }
 
 * {
@@ -218,12 +217,15 @@ a {
   top: 0;
   background-color: #061735;
   padding: 1rem 1.5rem;
-  font-weight: bold;
 }
 
 .type-header {
   width: 10%;
   border-bottom-left-radius: 10px;
+}
+
+td {
+  font-weight: normal;
 }
 
 .review-header, .review-row {
@@ -245,7 +247,8 @@ a {
 
 .type-row {
   width: 10%;
-  padding: 0.5em;
+  padding: 0.7em 0 0.7em 1em;
+  margin:auto;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
 }
@@ -274,7 +277,6 @@ a {
   width: 100%;
   background-color: #061735;
   padding: 1rem 1.5rem;
-  font-weight: bold;
   width: 10%;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -466,15 +468,18 @@ select {
 }
 
 #seasons, #episodes{
+  width: 5%;
   margin-right:10px;
 }
 
 #movie-icon {
-  padding:4px;
+  padding:4px 6px 4px 4px;
+  scale: 3;
 }
 
 #tvshow-icon {
-  padding:5px;
+  padding:5px 7px 5px 5px;
+  scale:3;
 }
 
 #movie-button {
@@ -544,8 +549,8 @@ select {
 }
 
 .icon img {
-  max-height: 100%; /* Ensure the image doesn't exceed the container's height */
-  width: 100%; /* Optional: Ensure the image doesn't exceed the container's width */
+  max-height: 100%;
+  width: 100%;
 }
 
 .detail-input{
@@ -690,10 +695,6 @@ select {
 
 #content-form{
   width:100%;
-}
-
-.show-input{
-  width:10%;
 }
 
 .form-input{
