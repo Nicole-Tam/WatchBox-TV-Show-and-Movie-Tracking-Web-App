@@ -91,6 +91,8 @@ var item = (
   })
 
   console.log(item,"item")
+  
+id = id + 1 //so each item has different id (for deletion)
 
 if (type === "movie"){
     item.runtime = form.elements['runtime'].value;
@@ -104,7 +106,6 @@ if (type === "movie"){
   refreshdisplay();
 }
 
-id = id + 1 //so each item has different id (for deletion)
 
 
 
@@ -160,16 +161,11 @@ function showItem(item){
   var whitespacetd = document.createElement("td");
   whitespacetd.setAttribute("colspan",5);
   whitespace.appendChild(whitespacetd);
-  whitespace.classList.add("whitespace")
+  whitespace.classList.add("whitespace");
   document.getElementById("content-table").children.item(1).appendChild(whitespace);
   
  }
 
- function showDetails(e){
-  var item = getMovieData()[Number(e.target.getAttribute("data-id"))];
-  detailOverlay.style.display="flex";
-  console.log("click",e)
-}
 
 function createDetailOverlay(item) {
   var overlay = document.getElementById("detail-overlay");
@@ -203,12 +199,17 @@ function createDetailOverlay(item) {
 
   overlay.style.display = "flex";
 
-
   var deleteButton = document.getElementById("delete");
-  deleteButton.addEventListener("click", function () {
+    deleteButton.addEventListener("click", function () {
     deleteItem(item.id);
     overlay.style.display = "none";
-  }); 
+    // Remove the row from the table (if it exists)
+    var row = document.querySelector("[data-id='" + item.id + "']");
+    if (row) {
+      row.parentNode.removeChild(row);
+    }
+  });
+
 
   
 }
@@ -255,7 +256,7 @@ var headerName = document.getElementById ("table-title");
 
 document.getElementById("filter-all").addEventListener("click", function (){filterbyAll(); headerName.textContent = "All";});
 document.getElementById("filter-favourites").addEventListener("click", function (){filterbyFavourites(); headerName.textContent = "Favourites"});
-document.getElementById("filter-movies").addEventListener("click", function (){filterbyMovies(); headerName.textContent = "Movies";});
+document.getElementById("filter-movies").addEventListener("click", function (){filterbyMovies(); headerName.textContent = "Movies"});
 document.getElementById("filter-to-watch-movies").addEventListener("click", function (){filterbyToWatchMovies(); headerName.textContent = "Movies: To Watch"});
 document.getElementById("filter-watched-movies").addEventListener("click", function (){filterbyWatchedMovies(); headerName.textContent = "Movies: Watched"});
 document.getElementById("filter-shows").addEventListener("click", function (){filterbyShows(); headerName.textContent = "TV Shows"});
@@ -278,17 +279,11 @@ function filterbyPredicate(predicate) {
   var table = document.getElementById("content-table").children.item(1);
   for (var i = 0; i < table.children.length; i++) {
     var row = table.children.item(i);
+  
+    var rowId = Number(row.getAttribute("data-id")); // turns it from string to number for comparison
 
-    var rowId = Number(row.getAttribute("data-id")); //turns it from string to number for comparision
-
-    if (contentIds.includes(rowId)) {
-      row.style.display = "table-row";
-      
-      
-    } else {
-      row.style.display = "none";
-    }
-  }  
+  }
+  
 }
 
 function refreshdisplay() {
