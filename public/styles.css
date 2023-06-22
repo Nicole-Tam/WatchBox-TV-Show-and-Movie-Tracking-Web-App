@@ -195,7 +195,6 @@ a {
 }
 
 #content-div {
-  overflow-y: scroll;
   /*turns div into scrollable div */
   width: 50%;
 }
@@ -244,12 +243,9 @@ a {
   border-bottom-right-radius: 10px;
 }
 
-.icon-row {
-  width: 10%;
-}
-
 .type-row {
   width: 10%;
+  padding: 0.5em;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
 }
@@ -292,8 +288,13 @@ a {
   font-weight: bold;
 }
 
+.display-content {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
 .display-content:hover {
-  box-shadow: 0 0 7px rgba(255, 255, 255, 1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1);
   border-radius: 10px;
 }
 
@@ -403,7 +404,7 @@ h2 {
   height: 110%;
 }
 
-.form-input-delete {
+.detail-input-delete {
   width: 100%;
   padding-top: 0.2em;
   justify-content: flex-end;
@@ -469,12 +470,10 @@ select {
 }
 
 #movie-icon {
-  scale: 180%;
   padding:4px;
 }
 
 #tvshow-icon {
-  scale: 220%;
   padding:5px;
 }
 
@@ -531,29 +530,29 @@ select {
   padding: 20px;
   margin: 1em;
   border-radius: 0.3rem;
+  width: 50%;
 }
 
 #detail-overlay{
-  display: flex;
+  display: none;
 }
 
-.type-row-movie{  
-  width: 10%;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-  background: url("assets/movie-icon.svg") no-repeat;
-  background-position: center;
+.movie-title {
+  font-size: 1.2em;
+  padding-bottom: 0.2rem;
+  font-weight: bold;
 }
 
-
-.type-row-show{
-  background: url("assets/movie-icon.svg") no-repeat;
-  background-position: center;
+.icon img {
+  max-height: 100%; /* Ensure the image doesn't exceed the container's height */
+  width: 100%; /* Optional: Ensure the image doesn't exceed the container's width */
 }
 
+.detail-input{
+  width: 20em;
+  margin-bottom: 0.2em;
 
-
-
+}
 
 @media only screen and (max-width: 480px){
 .filter-container{
@@ -634,9 +633,9 @@ select {
   top: 0;
   background-color: #061735;
   padding: 0.5rem;
-  font-weight: bold;
-  
+  font-weight: bold;  
 }
+
 
 .review-header, .review-row {
   width: 38%;
@@ -670,10 +669,6 @@ select {
   border-top-right-radius: 10px;
 }
 
-.icon-row {
-  width: 10%;
-}
-
 .type-header{
   width:7%;
   padding-left:1rem;
@@ -686,19 +681,6 @@ select {
   border-top-left-radius: 10px;
   font-weight: normal;
   padding-left:1rem;
-  /* background: url("assets/movie-icon.svg") no-repeat;
-  background-position: center; */
-}
-
-.icon img{
-  width:100%;
-  height:100%;
-}
-
-.movie-title {
-  font-size: 1em;
-  padding-bottom: 0.2rem;
-  font-weight: bold;
 }
 
 #content-popup, #detail-popup{
