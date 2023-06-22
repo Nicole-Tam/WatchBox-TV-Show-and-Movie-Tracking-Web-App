@@ -198,19 +198,6 @@ function createDetailOverlay(item) {
   }
 
   overlay.style.display = "flex";
-
-  var deleteButton = document.getElementById("delete");
-    deleteButton.addEventListener("click", function () {
-    deleteItem(item.id);
-    overlay.style.display = "none";
-    // Remove the row from the table (if it exists)
-    var row = document.querySelector("[data-id='" + item.id + "']");
-    if (row) {
-      row.parentNode.removeChild(row);
-    }
-  });
-
-
   
 }
 
@@ -225,7 +212,11 @@ function deleteItem(id) {
   for (var i = 0; i < rows.length; i++) {
     var row = rows[i];
     if (Number(row.getAttribute("data-id")) === id) {
-      row.parentNode.removeChild(row);
+      var whitespace = row.nextSibling; // Get the next sibling (whitespace tr)
+      if (whitespace && whitespace.classList.contains("whitespace")) {
+        whitespace.parentNode.removeChild(whitespace); // Remove the whitespace tr
+      }
+      row.parentNode.removeChild(row); // Remove the row
       break;
     }
   }
@@ -281,14 +272,28 @@ function filterbyPredicate(predicate) {
     var row = table.children.item(i);
   
     var rowId = Number(row.getAttribute("data-id")); // turns it from string to number for comparison
-
+  
+    if (contentIds.includes(rowId)) {
+      row.style.display = "table-row";
+  
+      var whitespace = document.createElement("tr");
+      var whitespacetd = document.createElement("td");
+      whitespacetd.setAttribute("colspan", 5);
+      whitespace.appendChild(whitespacetd);
+      whitespace.classList.add("whitespace");
+      table.insertBefore(whitespace, row);
+    } else {
+      row.style.display = "none";
+    }
   }
   
 }
 
 function refreshdisplay() {
   var table = document.getElementById("content-table").children.item(1);
-  for(var i = 1; i<table.children.length;i++){
+  console.log("todelete", document.getElementById("content-table").children.item(1).children)
+  for(var i = table.children.length-1; i>=1 ; i--){
+    console.log("deleting", table.children.item(i))
     table.removeChild(table.children.item(i));
   } 
   getMovieData().map(showItem);
