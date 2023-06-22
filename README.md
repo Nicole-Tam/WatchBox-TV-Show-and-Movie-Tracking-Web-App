@@ -26,6 +26,11 @@ I then made a custom scrollbar with the help of <a href="https://www.w3schools.c
 
 However, I ran into some problems when making the table. I realised that for the website to feature the design I wanted it to feature, making each row into individual sections would be better, although more tedious. This was because of the way tables work, I would be unable to customize the gap between rows, and would have to find and test different workarounds to make each row have an individual border radius. For me, making separate divs made more sense, as the CSS for tables and HTML also gets too messy for my liking. But I read that tables are more <a href="https://stackoverflow.com/questions/2617895/actual-table-vs-div-table">semantically correct</a> for tabular data, and even though my data isn't EXACTLY tabular, I decided to try using tables, since I've actually never worked with them before.
 
+
+After testing, the scrolling div felt too gimmicky, especially since the content in the table is pretty self explanatory. Hence, I decided to remove overflow-x from css.
+
+Furthermore, my images and styling looked really weird. I tried to fix the issue for so long, until I realised it was all because I had put vertical-align in my universal selector. Super obvious, but I don't usually look at my universal selectors because I don't expect myself to change them. It was only when I opened dev tools that it became very obvious to me, as obvious as it had already looked on the page.
+
 ## Pop Up Development
 
 I initially wanted to remove the outline of the add new content button, but after reading a few articles on <a href="https://www.a11yproject.com/posts/never-remove-css-outlines/">how important the outline and in particular an outline when a button is focused on is</a>, I decided not to, and to change the outline to white, as well as provide an underline when focused to help accessibility. 
@@ -43,13 +48,17 @@ After the dropdown was done, I used Javascript to store the data in local storag
 
 ## Detail Pop Up Development
 
-The development of my details popup was pretty similar to the popup previously, with changed ids to allow for javascript to send task details to those specific containers.
+The development of my details popup was pretty similar to the popup previously, with changed ids to allow for javascript to send task details to those specific containers and an event listener to change the fields to match the item i clicked.
 
 ## Left off vs Length
 
 The original idea for TV shows was for the tracker to show the user which season/episode they are on. However, it didn't make much sense for it to track which episode viewers are on when apps like Netflix and DisneyPlus already save that data, and the entered data is unable to be edited, only viewed back. Hence, I changed the left off label to show the length of the show instead.
 
-## 
+## Javascript  
+
+Looking back on some of my javascript, I definitely think it could've been simplified: functions couldve been used for some of the event clickers, I could've made my create item make a whole new tbody each time so that I wouldn't need to spend so long fixing the issues with my whitespace td, and if I had used HTML section tags instead of a table it would've made the process easier too. These are definitely things I will keep in mind, and mistakes I will definitely keep making, but hopefully less.
+
+
 
 
 
@@ -93,12 +102,15 @@ Would've been much easier, despite needing to transition what I already had to s
 ## Use <b> to bold, use <strong> to semantically emphasise something while also bolding it
 It's in the name, but I thought the two were interchangable and mostly used whichever one I felt like. Semantic HTML is the gift that keeps on giving!
 
-## Shift + Alt + I formats your code for you!
+## Shift + Alt + F formats your code for you!
 
 ## I already knew this, but I still feel like it's invaluable: console.log every single time I run into an error, paired with devtools ofc
 
 ## ?? nullish coalescing operator
 My first instinct was to make an if statement to check if the localStorage parsed an empty array, but <a href="https://www.w3schools.com/jsref/jsref_operators.asp">this</a> already does it for you! It's also extremely useful in most situations as you can also make it return specific default values.
+
+## font awesome is pretty awesome!
+<a href="https://fontawesome.com/search?q=star&o=r&m=free">This resource</a> was extremely helpful for free icons.
 
 
 ## Sources:
@@ -119,3 +131,4 @@ http://meyerweb.com/eric/tools/css/reset/
 <br>https://www.w3schools.com/jsref/jsref_operators.asp
 <br>https://scrimba.com/scrim/cEr7veuE
 <br>https://developer.mozilla.org/en-US/docs/Web/API/Element
+<br>https://fontawesome.com/search?q=star&o=r&m=free
