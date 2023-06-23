@@ -1,48 +1,58 @@
-refreshdisplay(); //refreshes browser content so that preexisting content shows when browser is opened.
+refreshDisplay(); //refreshes browser content so that preexisting content shows when browser is opened.headerName.innerHTML = "All (" + (Number(movie) + Number(shows)) + ")";
+document.body.main.table.th.tbody.tr.innerHTML = "All (" + (Number(movie) + Number(shows)) + ")";
 
 const addButton = document.getElementById("add-content-button");
 const overlay = document.getElementById("content-popup-background");
 const popup = document.getElementById('content-popup');
-const closePopup = document.getElementById("form-close");
+const closePopup = document.querySelector("#form-close a");
 const form = document.getElementById("content-form");
 
-const closeDetails = document.getElementById("detail-close");
+const closeDetails = document.querySelector("#detail-close a");
 var contentRow = document.getElementsByClassName("display-content");
 
 
-addButton.addEventListener("click", () => { //reset form whenever it's opened again.
-  form.reset();
+addButton.addEventListener("click", () => {
   overlay.style.display = "flex";
   popup.style.display = 'flex';
 });
 
 closePopup.addEventListener("click", () => {
-  overlay.style.display = "none"
+  resetForm();
 });
 
 document.addEventListener('keydown', function (e) {
-  console.log(e.key);
   if (e.key == 'Escape') {
-    overlay.style.display = "none";
+    resetForm();
   }
 });
 
 overlay.addEventListener('click', function (event) {
   if (event.target === overlay) {
-    overlay.style.display = 'none';
-    document.getElementById("content-form").reset();
+    resetForm();
   }
 });
+
+
+function resetForm() {
+  overlay.style.display = 'none';
+  document.getElementById("content-form").reset();
+}
 
 const movieButton = document.getElementById("movie-button");
 const tvshowButton = document.getElementById("tvshow-button");
 const runtimeInput = document.getElementById("runtime");
 const showLength = document.getElementById("show-length");
+const movieIcon = document.getElementById("movie-icon")
+const TVIcon = document.getElementById("tvshow-icon")
+
 movieButton.addEventListener("click", function () { //don't show movie options when tv show button is pressed
   runtimeInput.style.display = "flex";
   showLength.style.display = "none";
   movieButton.id = "movie-button-checked"
   tvshowButton.id = "tvshow-button";
+  movieIcon.src = "assets/movie-icon-active.svg";
+  TVIcon.src = "assets/tvshow.svg";
+
 });
 
 tvshowButton.addEventListener("click", function () { //don't show tv show options when movie button is pressed
@@ -50,36 +60,56 @@ tvshowButton.addEventListener("click", function () { //don't show tv show option
   showLength.style.display = "flex";
   tvshowButton.id = "movie-button-checked";
   movieButton.id = "movie-button";
+  movieIcon.src = "assets/movie-Button.svg";
+  TVIcon.src = "assets/tv-icon-active.svg";
 });
+
+const deleteBtn = document.getElementById("delete");
+
+deleteBtn.addEventListener("click", function () {
+  deleteItem(overlayid);
+  detailOverlay.style.display = "none"
+});
+
+
 
 var detailOverlay = document.getElementById("detail-overlay");
 var contentRow = document.getElementsByClassName("display-content");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  additem();
-  overlay.style.display="none";
+  addItem();
+  overlay.style.display = "none";
 }
 )
 
-  //retrieving form input
-  var id = 0
+//retrieving form input
+var id = Number(localStorage.getItem('id')) || 0;
+var movie = Number(localStorage.getItem('movieCount')) || 0;
+var shows = Number(localStorage.getItem('showCount')) || 0;
+var favouriteCount = Number(localStorage.getItem('favouriteCount')) || 0;
+var watchedShows = Number(localStorage.getItem('watchedShowsCount')) || 0;
+var watchedMovies = Number(localStorage.getItem('watchedMoviesCount')) || 0;
+var toWatchShows = Number(localStorage.getItem('toWatchShowsCount')) || 0;
+var toWatchMovies = Number(localStorage.getItem('toWatchMoviesCount')) || 0;
+var date;
 
-  function additem() {
-    var name = form.elements['title'].value
-    var type = form.elements['media-type'].value
-    var genre = form.elements['genre'].value
-    var description = form.elements['description'].value
-    var review = form.elements['review'].value
-    var rating = form.elements['rating'].value
-    var favorites = form.elements['favourites'].checked
-    var watched = form.elements['watched'].checked
-    var toWatch = form.elements['to-watch'].checked
 
-var item = (
-  {
-    id: id,
-     mediatype: type,
+function addItem() {
+  var name = form.elements['title'].value
+  var type = form.elements['media-type'].value
+  var genre = form.elements['genre'].value
+  var description = form.elements['description'].value
+  var review = form.elements['review'].value
+  var rating = form.elements['rating'].value
+  var favorites = form.elements['favourites'].checked
+  var watched = form.elements['watched'].checked
+  var toWatch = form.elements['to-watch'].checked
+
+  var item = (
+    {
+      id: id,
+      mediatype: type,
       name,
       genre,
       description,
@@ -87,29 +117,71 @@ var item = (
       rating,
       favourites,
       watched,
-      toWatch
-  })
+      toWatch,
+      date: new Date(),
+    })
 
-  console.log(item,"item")
-  
-id = id + 1 //so each item has different id (for deletion)
+  id = id + 1 //so each item has different id (for deletion)
 
-if (type === "movie"){
+  if (type === "movie") {
     item.runtime = form.elements['runtime'].value;
-}else {
-  item.seasons = form.elements['seasons'].value;
-  item.episodes = form.elements['episodes'].value;
-}
-  var myMovies = getMovieData();
+    movie = movie + 1;
+
+    if (favorites === true && watched === true && toWatch === true) {
+      favouriteCount = favouriteCount + 1;
+      watchedMovies = watchedMovies + 1;
+      toWatchMovies = toWatchMovies + 1;
+    } else if (favorites === true && watched === true) {
+      favouriteCount = favouriteCount + 1;
+      watchedMovies = watchedMovies + 1;
+    } else if (favorites === true && toWatch === true) {
+      favouriteCount = favouriteCount + 1;
+      toWatchMovies = toWatchMovies + 1;
+    } else if (watched === true && toWatch === true) {
+      watchedMovies = watchedMovies + 1;
+      toWatchMovies = toWatchMovies + 1;
+    } else if (favorites === true) {
+      favouriteCount = favouriteCount + 1;
+    } else if (watched === true) {
+      watchedMovies = watchedMovies + 1;
+    } else if (toWatch === true) {
+      toWatchMovies = toWatchMovies + 1;
+    }
+  } else {
+    item.seasons = form.elements['seasons'].value;
+    item.episodes = form.elements['episodes'].value;
+    shows = shows + 1;
+
+    if (favorites === true && watched === true && toWatch === true) {
+      favouriteCount = favouriteCount + 1;
+      watchedShows = watchedShows + 1;
+      toWatchShows = toWatchShows + 1;
+    } else if (favorites === true && watched === true) {
+      favouriteCount = favouriteCount + 1;
+      watchedShows = watchedShows + 1;
+    } else if (favorites === true && toWatch === true) {
+      favouriteCount = favouriteCount + 1;
+      toWatchShows = toWatchShows + 1;
+    } else if (watched === true && toWatch === true) {
+      watchedShows = watchedShows + 1;
+      toWatchShows = toWatchShows + 1;
+    } else if (favorites === true) {
+      favouriteCount = favouriteCount + 1;
+    } else if (watched === true) {
+      watchedShows = watchedShows + 1;
+    } else if (toWatch === true) {
+      toWatchShows = toWatchShows + 1;
+    }
+  }
+  function saveCountToLocal()
+  var myMovies = getContentData();
   myMovies.push(item);
   setMovieData(myMovies);
-  refreshdisplay();
+  refreshDisplay();
 }
 
 
-
-
-function showItem(item){
+function showItem(item) {
   var tr = document.createElement("tr");
   var td1 = document.createElement("td");
   var td2 = document.createElement("td");
@@ -118,20 +190,19 @@ function showItem(item){
   var td5 = document.createElement("td");
   var icon = document.createElement("img")
   tr.classList.add("display-content");
-  td1.textContent="";
   td1.appendChild(icon);
   td1.classList.add("icon", "headers", "type-row");
-  var title=document.createElement("h3");
+  var title = document.createElement("h3");
   title.classList.add("movie-title");
-  title.textContent=item.name;
+  title.textContent = item.name;
   td2.appendChild(title)
   td2.classList.add("headers", "review-row");
   var review = document.createElement("span");
   review.textContent = item.review;
   td2.appendChild(review);
-  td3.textContent=item.genre.slice(0,1).toUpperCase()+item.genre.slice(1);  //turns first letter to upper case
+  td3.textContent = item.genre.slice(0, 1).toUpperCase() + item.genre.slice(1);  //turns first letter to upper case
   td3.classList.add("headers", "genre-row");
-  td4.textContent=item.rating;
+  td4.textContent = item.rating;
   td4.classList.add("headers", "rating-row");
   td5.classList.add("headers", "length-row");
   tr.appendChild(td1);
@@ -140,34 +211,36 @@ function showItem(item){
   tr.appendChild(td4);
   tr.appendChild(td5);
   document.getElementById("content-table").children.item(1).appendChild(tr);
-  
+
   tr.addEventListener("click", showDetails)
   tr.setAttribute("data-id", item.id)
 
-  if (item.mediatype === "movie"){
-    icon.setAttribute("src","assets/movie-icon.svg")
-     td5.innerHTML=item.runtime + " Minutes";
+  if (item.mediatype === "movie") {
+    icon.setAttribute("src", "assets/movie-icon.svg")
+    td5.innerHTML = item.runtime + " Minutes";
   } else {
-    icon.setAttribute("src","assets/show-icon.svg")
+    icon.setAttribute("src", "assets/show-icon.svg")
 
-    if (item.seasons === "0"){
-      td5.innerHTML= 'Episodes: ' + item.episodes;
+    if (item.seasons === "0") {
+      td5.innerHTML = 'Episodes: ' + item.episodes;
     } else {
-    td5.innerHTML='Seasons: ' + item.seasons +"<br>" + 'Episodes: ' + item.episodes;
+      td5.innerHTML = 'Seasons: ' + item.seasons + "<br>" + 'Episodes: ' + item.episodes;
     }
   }
-  
+
   var whitespace = document.createElement("tr");
   var whitespacetd = document.createElement("td");
-  whitespacetd.setAttribute("colspan",5);
+  whitespacetd.setAttribute("colspan", 5);
   whitespace.appendChild(whitespacetd);
   whitespace.classList.add("whitespace");
   document.getElementById("content-table").children.item(1).appendChild(whitespace);
-  
- }
 
+}
+
+var overlayid = false
 
 function createDetailOverlay(item) {
+  overlayid = item.id
   var overlay = document.getElementById("detail-overlay");
   var contentName = document.querySelector(".content-name");
   var movieName = document.querySelector(".content-title");
@@ -184,7 +257,7 @@ function createDetailOverlay(item) {
   description.textContent = item.description;
   review.textContent = item.review;
   rating.textContent = item.rating;
-  
+
 
   if (item.mediatype === "movie") {
     runtimeField.textContent = item.runtime + " Minutes";
@@ -198,32 +271,74 @@ function createDetailOverlay(item) {
   }
 
   overlay.style.display = "flex";
-  
+
 }
 
 function deleteItem(id) {
-  var myMovies = getMovieData();
-  myMovies = myMovies.filter((m) => m.id !== id);
-  setMovieData(myMovies);
+  var myMovies = getContentData();
+  var deletedItem = myMovies.find((m) => m.id === id);
 
-  var table = document.getElementById("content-table").children.item(1);
-  var rows = table.getElementsByClassName("display-content");
+  if (deletedItem.mediatype === "movie") {
+    item.runtime = form.elements['runtime'].value;
+    movie = movie - 1;
 
-  for (var i = 0; i < rows.length; i++) {
-    var row = rows[i];
-    if (Number(row.getAttribute("data-id")) === id) {
-      var whitespace = row.nextSibling; // Get the next sibling (whitespace tr)
-      if (whitespace && whitespace.classList.contains("whitespace")) {
-        whitespace.parentNode.removeChild(whitespace); // Remove the whitespace tr
-      }
-      row.parentNode.removeChild(row); // Remove the row
-      break;
+    if (deletedItem.favorites === true && deletedItem.watched === true && deletedItem.toWatch === true) {
+      favouriteCount = favouriteCount - 1;
+      watchedMovies = watchedMovies - 1;
+      toWatchMovies = toWatchMovies - 1;
+    } else if (deletedItem.favorites === true && deletedItem.watched === true) {
+      favouriteCount = favouriteCount - 1;
+      watchedMovies = watchedMovies - 1;
+    } else if (deletedItem.favorites === true && deletedItem.toWatch === true) {
+      favouriteCount = favouriteCount - 1;
+      toWatchMovies = toWatchMovies - 1;
+    } else if (deletedItem.watched === true && deletedItem.toWatch === true) {
+      watchedMovies = watchedMovies - 1;
+      toWatchMovies = toWatchMovies - 1;
+    } else if (deletedItem.favorites === true) {
+      favouriteCount = favouriteCount - 1;
+    } else if (deletedItem.watched === true) {
+      watchedMovies = watchedMovies - 1;
+    } else if (deletedItem.toWatch === true) {
+      toWatchMovies = toWatchMovies - 1;
+    }
+  } else {
+    item.seasons = form.elements['seasons'].value;
+    item.episodes = form.elements['episodes'].value;
+    shows = shows - 1;
+
+    if (deletedItem.favorites === true && deletedItem.watched === true && deletedItem.toWatch === true) {
+      favouriteCount = favouriteCount - 1;
+      watchedShows = watchedShows - 1;
+      toWatchShows = toWatchShows - 1;
+    } else if (deletedItem.favorites === true && deletedItem.watched === true) {
+      favouriteCount = favouriteCount - 1;
+      watchedShows = watchedShows - 1;
+    } else if (deletedItem.favorites === true && deletedItem.toWatch === true) {
+      favouriteCount = favouriteCount - 1;
+      toWatchShows = toWatchShows - 1;
+    } else if (deletedItem.watched === true && deletedItem.toWatch === true) {
+      watchedShows = watchedShows - 1;
+      toWatchShows = toWatchShows - 1;
+    } else if (deletedItem.favorites === true) {
+      favouriteCount = favouriteCount - 1;
+    } else if (deletedItem.watched === true) {
+      watchedShows = watchedShows - 1;
+    } else if (deletedItem.toWatch === true) {
+      toWatchShows = toWatchShows - 1;
     }
   }
+
+  function saveCountToLocal();
+  myMovies = myMovies.filter((m) => m.id !== id);
+  setMovieData(myMovies);
+  refreshDisplay();
 }
 
 function showDetails(e) {
-  var item = getMovieData()[Number(e.target.getAttribute("data-id"))];
+  var ele = e.target;
+  while (ele.getAttribute("data-id") == null || ele.getAttribute("data-id") == undefined) { ele = ele.parentElement; }
+  var item = getContentData()[Number(ele.getAttribute("data-id"))];
   createDetailOverlay(item);
 }
 
@@ -233,26 +348,58 @@ closeDetails.addEventListener("click", () => {
 });
 
 
- function getMovieData(){
+function getContentData() {
   return (JSON.parse(localStorage.getItem("myMovieData")) ?? []); //so that refreshDisplay doesn't show an error when myMovieData is empty
-  
- }
 
- function setMovieData(myMovies){
+}
+
+function setMovieData(myMovies) {
   localStorage.setItem("myMovieData", JSON.stringify(myMovies));
- }
+}
 
 
-var headerName = document.getElementById ("table-title");
+var headerName = document.getElementById("table-title");
 
-document.getElementById("filter-all").addEventListener("click", function (){filterbyAll(); headerName.textContent = "All";});
-document.getElementById("filter-favourites").addEventListener("click", function (){filterbyFavourites(); headerName.textContent = "Favourites"});
-document.getElementById("filter-movies").addEventListener("click", function (){filterbyMovies(); headerName.textContent = "Movies"});
-document.getElementById("filter-to-watch-movies").addEventListener("click", function (){filterbyToWatchMovies(); headerName.textContent = "Movies: To Watch"});
-document.getElementById("filter-watched-movies").addEventListener("click", function (){filterbyWatchedMovies(); headerName.textContent = "Movies: Watched"});
-document.getElementById("filter-shows").addEventListener("click", function (){filterbyShows(); headerName.textContent = "TV Shows"});
-document.getElementById("filter-to-watch-shows").addEventListener("click", function (){filterbyToWatchShows(); headerName.textContent = "Shows: To Watched"});
-document.getElementById("filter-watched-shows").addEventListener("click", function (){filterbyWatchedShows(); headerName.textContent = "Shows: Watched"});
+document.getElementById("filter-all").addEventListener("click", function () {
+  filterbyAll();
+  headerName.innerHTML = "All (" + (Number(movie) + Number(shows)) + ")";
+});
+
+document.getElementById("filter-favourites").addEventListener("click", function () {
+  filterbyFavourites();
+  headerName.innerHTML = "Favourites (" + favouriteCount + ")";
+});
+
+document.getElementById("filter-movies").addEventListener("click", function () {
+  filterbyMovies();
+  headerName.innerHTML = "Movies (" + movie + ")";
+});
+
+document.getElementById("filter-to-watch-movies").addEventListener("click", function () {
+  filterbyToWatchMovies();
+  headerName.innerHTML = "Movies: To Watch (" + toWatchMovies + ")";
+});
+
+document.getElementById("filter-watched-movies").addEventListener("click", function () {
+  filterbyWatchedMovies();
+  headerName.innerHTML = "Movies: Watched (" + watchedMovies + ")";
+});
+
+document.getElementById("filter-shows").addEventListener("click", function () {
+  filterbyShows();
+  headerName.innerHTML = "TV Shows (" + shows + ")";
+});
+
+document.getElementById("filter-to-watch-shows").addEventListener("click", function () {
+  filterbyToWatchShows();
+  headerName.innerHTML = "Shows: To Watched (" + toWatchShows + ")";
+});
+
+document.getElementById("filter-watched-shows").addEventListener("click", function () {
+  filterbyWatchedShows();
+  headerName.innerHTML = "Shows: Watched (" + watchedShows + ")";
+});
+
 
 function filterbyAll() { filterbyPredicate(x => true) }
 function filterbyFavourites() { filterbyPredicate(x => x.favourites === true) }
@@ -261,40 +408,46 @@ function filterbyToWatchMovies() { filterbyPredicate(x => x.toWatch === true && 
 function filterbyWatchedMovies() { filterbyPredicate(x => x.watched === true && x.mediatype === "movie") }
 function filterbyShows() { filterbyPredicate(x => x.mediatype === "tvshow") }
 function filterbyToWatchShows() { filterbyPredicate(x => x.toWatch === true && x.mediatype === "tvshow") }
-function filterbyWatchedShows() { filterbyPredicate(x => x.watched === true && x.mediatype === "tvshow")}
+function filterbyWatchedShows() { filterbyPredicate(x => x.watched === true && x.mediatype === "tvshow") }
 
 
 function filterbyPredicate(predicate) {
-  var content = getMovieData();
+  var content = getContentData();
   var contentIds = content.filter(x => predicate(x)).map(x => x.id);
   var table = document.getElementById("content-table").children.item(1);
   for (var i = 0; i < table.children.length; i++) {
     var row = table.children.item(i);
-  
+
     var rowId = Number(row.getAttribute("data-id")); // turns it from string to number for comparison
-  
+
     if (contentIds.includes(rowId)) {
       row.style.display = "table-row";
-  
-      var whitespace = document.createElement("tr");
-      var whitespacetd = document.createElement("td");
-      whitespacetd.setAttribute("colspan", 5);
-      whitespace.appendChild(whitespacetd);
-      whitespace.classList.add("whitespace");
-      table.insertBefore(whitespace, row);
+      if (row.nextElementSibling !== null) {
+        row.nextElementSibling.style.display = "table-row"
+      }
     } else {
       row.style.display = "none";
     }
   }
-  
+  table.children.item(0).style.display = "table-row"
 }
 
-function refreshdisplay() {
+function refreshDisplay() {
   var table = document.getElementById("content-table").children.item(1);
-  console.log("todelete", document.getElementById("content-table").children.item(1).children)
-  for(var i = table.children.length-1; i>=1 ; i--){
-    console.log("deleting", table.children.item(i))
+  table.children.item(0).style.display = "table-row"
+  for (var i = table.children.length - 1; i >= 1; i--) {
     table.removeChild(table.children.item(i));
-  } 
-  getMovieData().map(showItem);
+  }
+  getContentData().map(showItem);
+}
+
+function saveCountToLocal() {
+  localStorage.setItem('id', id);
+  localStorage.setItem('movieCount', movie);
+  localStorage.setItem('showCount', shows);
+  localStorage.setItem('favouriteCount', favouriteCount);
+  localStorage.setItem('watchedShowsCount', watchedShows);
+  localStorage.setItem('watchedMoviesCount', watchedMovies);
+  localStorage.setItem('toWatchShowsCount', toWatchShows);
+  localStorage.setItem('toWatchMoviesCount', toWatchMovies);
 }
