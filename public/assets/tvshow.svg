@@ -1,12 +1,12 @@
 <svg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2.33398 0.846191L3.61358 2.31609L5.09004 0.846191" stroke="white" stroke-width="0.183737" stroke-linecap="round"/>
-<rect x="0.7718" y="2.22419" width="6.24705" height="4.04221" rx="0.275605" fill="white" stroke="white" stroke-width="0.183737"/>
-<path d="M1.23145 6.54148L1.68958 4.61729C1.69037 4.61399 1.69206 4.61097 1.69446 4.60857L3.78853 2.51123C3.79528 2.50447 3.80609 2.50401 3.81339 2.51018L6.1873 4.51611C6.19055 4.51887 6.19275 4.52267 6.19352 4.52686L6.55981 6.54148" stroke="white" stroke-width="0.55121" stroke-linecap="round" stroke-linejoin="round"/>
-<rect x="1.04761" y="2.49927" width="4.59342" height="3.491" rx="0.367473" fill="#26133E"/>
-<rect x="5.82471" y="2.49927" width="0.918684" height="0.918684" rx="0.183737" fill="#26133E"/>
-<rect x="5.82471" y="3.60181" width="0.918684" height="0.918684" rx="0.183737" fill="#26133E"/>
-<circle cx="6.28405" cy="5.53112" r="0.459342" fill="#26133E"/>
-<ellipse cx="3.80349" cy="2.13212" rx="1.28616" ry="0.367473" fill="white"/>
-<circle cx="2.33388" cy="0.845846" r="0.183737" fill="white"/>
-<circle cx="5.0895" cy="0.845846" r="0.183737" fill="white"/>
+<path d="M2.33398 0.846191L3.61358 2.31609L5.09004 0.846191" stroke="#26133E" stroke-width="0.183737" stroke-linecap="round"/>
+<rect x="0.7718" y="2.22419" width="6.24705" height="4.04221" rx="0.275605" fill="#26133E" stroke="#26133E" stroke-width="0.183737"/>
+<path d="M1.23145 6.54148L1.68958 4.61729C1.69037 4.61399 1.69206 4.61097 1.69446 4.60857L3.78853 2.51123C3.79528 2.50447 3.80609 2.50401 3.81339 2.51018L6.1873 4.51611C6.19055 4.51887 6.19275 4.52267 6.19352 4.52686L6.55981 6.54148" stroke="#26133E" stroke-width="0.55121" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1.04761" y="2.49927" width="4.59342" height="3.491" rx="0.367473" fill="white"/>
+<rect x="5.82471" y="2.49927" width="0.918684" height="0.918684" rx="0.183737" fill="white"/>
+<rect x="5.82471" y="3.60181" width="0.918684" height="0.918684" rx="0.183737" fill="white"/>
+<circle cx="6.28405" cy="5.53112" r="0.459342" fill="white"/>
+<ellipse cx="3.80349" cy="2.13212" rx="1.28616" ry="0.367473" fill="#26133E"/>
+<circle cx="2.33388" cy="0.845846" r="0.183737" fill="#26133E"/>
+<circle cx="5.0895" cy="0.845846" r="0.183737" fill="#26133E"/>
 </svg>
