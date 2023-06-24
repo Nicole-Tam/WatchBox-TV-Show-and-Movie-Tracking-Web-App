@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
   <title>Content Tracker</title>
   <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
@@ -30,12 +31,12 @@
         <div class="form-content"><label class="form-label" for="type">Type:</label>
           <div id="form-input-radio" class="form-input">
             <label id="movie-button">
-              <input type="radio" name="media-type" value="movie" class="active-button">
-              <img src="assets/Movie Button.svg" id="movie-icon" alt="movie icon">
+              <input type="radio" name="media-type" value="Movie" class="active-button">
+              <img src="assets/Movie-Button.svg" id="movie-icon" alt="movie icon">
               Movie
             </label>
             <label id="tvshow-button">
-              <input type="radio" name="media-type" value="tvshow" class="active-button">
+              <input type="radio" name="media-type" value="TVShow" class="active-button">
               <img src="assets/tvshow.svg" id="tvshow-icon" alt="tv show icon">
               TV Show
             </label>
@@ -46,20 +47,20 @@
         </div>
         <div class="form-content"><label for="genre">Genre:</label>
           <div class="form-input"><select name="genre">
-              <option value="action">Action</option>
-              <option value="action">Adventure</option>
-              <option value="comedy">Comedy</option>
-              <option value="drama">Drama</option>
-              <option value="fantasy">Fantasy</option>
-              <option value="family">Family</option>
-              <option value="horror">Horror</option>
-              <option value="musical">Musical</option>
-              <option value="mystery">Mystery</option>
-              <option value="romance">Romance</option>
-              <option value="science-fiction">Science Fiction</option>
-              <option value="sports">Sports</option>
-              <option value="thriller">Thriller</option>
-              <option value="western">Western</option>
+              <option value="Action">Action</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Drama">Drama</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Family">Family</option>
+              <option value="Horror">Horror</option>
+              <option value="Musical">Musical</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Romance">Romance</option>
+              <option value="Science-fiction">Science Fiction</option>
+              <option value="Sports">Sports</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Western">Western</option>
             </select></div>
         </div>
         <div class="form-content"><label for="description">Description:</label>
@@ -125,24 +126,24 @@
 
   <main id="main-page-wrapper">
     <ul id="filter-bar">
-      <li class="filter-option" data-category="all" id="filter-all"><a href=#>All</a></li>
-      <li class="filter-option" data-category="favourites" id="filter-favourites"><a href=#>Favourites</a></li>
-      <li class="filter-option" data-category="movies" id="filter-movies"><a href=#>Movies</a></li>
+      <li class="filter-option filters bold" data-category="all" id="filter-all"><a href=#>All <a class ="item-count"></a></a></li>
+      <li class="filter-option filters" data-category="favourites" id="filter-favourites"><a href=#>Favourites <a class ="item-count"></a></li>
+      <li class="filter-option filters" data-category="movies" id="filter-movies"><a href=#>Movies <a class ="item-count"></a></li>
       <nav class="filter-container">
-        <li class="subfilter-option" data-category="watched-movies" id="filter-watched-movies"><a href=#>Watched</a></li>
-        <li class="subfilter-option" data-category="to-watch-movies" id="filter-to-watch-movies"><a href=#>To Watch</a></li>
+        <li class="subfilter-option filters" data-category="watched-movies" id="filter-watched-movies"><a href=#>Watched <a class ="item-count"></a></li>
+        <li class="subfilter-option filters" data-category="to-watch-movies" id="filter-to-watch-movies"><a href=#>To Watch </a></li>
       </nav>
-      <li class="filter-option" data-category="tvshows" id="filter-shows"><a href=#>TV Shows</a></li>
+      <li class="filter-option filters" data-category="tvshows" id="filter-shows"><a href=#>TV Shows <a class ="item-count"></a></li>
       <nav class="filter-container">
-        <li class="subfilter-option" data-category="watched-tvshows" id="filter-watched-shows"><a href=#>Watched</a></li>
-        <li class="subfilter-option" data-category="to-watch-tvshows" id="filter-to-watch-shows"><a href=#>To Watch</a></li>
+        <li class="subfilter-option filters" data-category="watched-tvshows" id="filter-watched-shows"><a href=#>Watched <a class ="item-count"></a></li>
+        <li class="subfilter-option filters" data-category="to-watch-tvshows" id="filter-to-watch-shows"><a href=#>To Watch <a class ="item-count"></a></li>
       </nav>
     </ul>
 
     <section id="content-div">
       <table id="content-table">
         <tr id="table-header">
-          <th class="headers" id="table-title" colspan="5">My Content <span id="item-count"></span></th>
+          <th class="headers" id="table-title" colspan="5"></th>
         </tr>
         <tr id="table-bodies">
           <th class="headers type-header">Type</th>
@@ -167,7 +168,7 @@
           <div id="detail-close"><a href="#">&#10006;</a></div>
         </div>
         <div class="form-content"><label class="form-label" for="type">Type:</label>
-          <div class="detail-input"></div>  
+          <div class="detail-input content-type"></div>  
         </div>
         <div class="form-content"><label for="genre">Genre:</label>
           <div class="detail-input content-genre"></div>
@@ -197,7 +198,7 @@
         </div>
         <div class="form-content">
           <div class="detail-input-delete">
-            <button type="submit" id="delete">Delete</button>
+            <button id="delete">Delete</button>
           </div>
         </div>
     </aside>
