@@ -60,8 +60,7 @@ Looking back on some of my javascript, I definitely think it could've been simpl
 
 Furthermore, I tried to simplify my javascript code as best I could, but there were definitely many mistakes made in the process, and sometimes it had me wishing that I didn't try to fix it in the first place. When I changed my refresh display code, I overlooked things like the for loops; which direction the i++ was going in, copy and pasting for loops when it should've been i-- instead to work.
 
-When it came to counting the rows, I definitely could've made it simpler by creating a function that counts the rows with the attribute display-content, rather than making a separate item count, but since it works without an issue, I decided to keep it, and perhaps work on it in the final product.
-
+When it came to counting the rows, I initially made it much more difficult on myself by making a function that counts the rows with the attribute display-content, rather than making a separate item count, but since it works without an issue, I decided to keep it, and perhaps work on it in the final product. In the end, I realised that it would be really easy to change my filter tool and make it count the rows displayed instead, which is a much better way as the original one would be easily messed up if there was an issue with localStorage.
 
 # Things I learnt through this project
 ## ID's can be useful!
@@ -117,6 +116,10 @@ My first instinct was to make an if statement to check if the localStorage parse
 
 ## font awesome is pretty awesome!
 <a href="https://fontawesome.com/search?q=star&o=r&m=free">This resource</a> was extremely helpful for free icons.
+
+
+## Conclusion
+Overall, this was an extremely difficult challenge. I would spend a lot of time combing through errors, trying to make my code better and accidentally introducing another bug. However, I felt that this prototype definitely challenged my skills and forced me out of my comfort zone. Furthermore, there are so many resources online for things similar to this, which really helped my learning and understanding of the code I wrote.
 
 
 ## Sources:
