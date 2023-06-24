@@ -7,6 +7,7 @@ var watchedMovies = Number(localStorage.getItem('watchedMoviesCount')) || 0;
 var toWatchShows = Number(localStorage.getItem('toWatchShowsCount')) || 0;
 var toWatchMovies = Number(localStorage.getItem('toWatchMoviesCount')) || 0;
 var date;
+const headerName = document.getElementById("table-title");
 
 refreshDisplay(); //refreshes browser content so that preexisting content shows when browser is opened
 startDisplay();
@@ -22,6 +23,7 @@ var contentRow = document.getElementsByClassName("display-content");
 
 
 addButton.addEventListener("click", () => {
+  document.getElementById("content-form").reset();
   overlay.style.display = "flex";
   popup.style.display = 'flex';
 });
@@ -107,7 +109,7 @@ var date;
 
 function addItem() {
   var name = form.elements['title'].value
-  var type = form.elements['media-type'].value
+  var mediatype = form.elements['media-type'].value
   var genre = form.elements['genre'].value
   var description = form.elements['description'].value
   var review = form.elements['review'].value
@@ -119,7 +121,7 @@ function addItem() {
   var item = (
     {
       id: id,
-      mediatype: type,
+      mediatype,
       name,
       genre,
       description,
@@ -133,7 +135,7 @@ function addItem() {
 
   id = id + 1 //so each item has different id (for deletion)
 
-  if (type === "movie") {
+  if (mediatype === "Movie") {
     item.runtime = form.elements['runtime'].value;
     movie = movie + 1;
 
@@ -210,7 +212,7 @@ function showItem(item) {
   var review = document.createElement("span");
   review.textContent = item.review;
   td2.appendChild(review);
-  td3.textContent = item.genre.slice(0, 1).toUpperCase() + item.genre.slice(1);  //turns first letter to upper case
+  td3.textContent = item.genre
   td3.classList.add("headers", "genre-row");
   td4.textContent = item.rating;
   td4.classList.add("headers", "rating-row");
@@ -225,7 +227,7 @@ function showItem(item) {
   tr.addEventListener("click", showDetails)
   tr.setAttribute("data-id", item.id)
 
-  if (item.mediatype === "movie") {
+  if (item.mediatype === "Movie") {
     icon.setAttribute("src", "assets/movie-icon.svg")
     td5.innerHTML = item.runtime + " Minutes";
   } else {
@@ -254,6 +256,7 @@ function createDetailOverlay(item) {
   var overlay = document.getElementById("detail-overlay");
   var contentName = document.querySelector(".content-name");
   var movieName = document.querySelector(".content-title");
+  var typeInOverlay = document.querySelector(".content-type");
   var genre = document.querySelector(".content-genre");
   var description = document.querySelector(".content-description");
   var review = document.querySelector(".content-review");
@@ -263,13 +266,14 @@ function createDetailOverlay(item) {
   var episodesInput = document.getElementById("episodes");
 
   contentName.textContent = item.name;
+  typeInOverlay.textContent = item.mediatype;
   genre.textContent = item.genre;
   description.textContent = item.description;
   review.textContent = item.review;
   rating.textContent = item.rating;
 
 
-  if (item.mediatype === "movie") {
+  if (item.mediatype === "Movie") {
     runtimeField.textContent = item.runtime + " Minutes";
     document.getElementById("show-length").style.display = "none";
     document.getElementById("runtime").style.display = "block";
@@ -288,7 +292,7 @@ function deleteItem(id) {
   var myMovies = getContentData();
   var deletedItem = myMovies.find((m) => m.id === id);
 
-  if (deletedItem.mediatype === "movie") {
+  if (deletedItem.mediatype === "Movie") {
     deletedItem.runtime = form.elements['runtime'].value;
     movie = movie - 1;
 
@@ -368,7 +372,7 @@ function setMovieData(myMovies) {
 }
 
 
-var filterOptions = document.getElementsByClassName('filter-option');
+var filterOptions = document.getElementsByClassName('filters');
 
 for (var i = 0; i < filterOptions.length; i++) {
   filterOptions[i].addEventListener('click', function() {
@@ -378,6 +382,7 @@ for (var i = 0; i < filterOptions.length; i++) {
     this.classList.add('bold');
   });
 }
+
 
 document.getElementById("filter-all").addEventListener("click", function () {
   let filterAllText = document.querySelector("#filter-all a")
@@ -422,14 +427,15 @@ document.getElementById("filter-watched-shows").addEventListener("click", functi
 });
 
 
+
 function filterbyAll() { filterbyPredicate(x => true) }
 function filterbyFavourites() { filterbyPredicate(x => x.favourites === true)}
-function filterbyMovies() { filterbyPredicate(x => x.mediatype === "movie") }
-function filterbyToWatchMovies() { filterbyPredicate(x => x.toWatch === true && x.mediatype === "movie") }
-function filterbyWatchedMovies() { filterbyPredicate(x => x.watched === true && x.mediatype === "movie") }
-function filterbyShows() { filterbyPredicate(x => x.mediatype === "tvshow") }
-function filterbyToWatchShows() { filterbyPredicate(x => x.toWatch === true && x.mediatype === "tvshow") }
-function filterbyWatchedShows() { filterbyPredicate(x => x.watched === true && x.mediatype === "tvshow") }
+function filterbyMovies() { filterbyPredicate(x => x.mediatype === "Movie") }
+function filterbyToWatchMovies() { filterbyPredicate(x => x.toWatch === true && x.mediatype === "Movie") }
+function filterbyWatchedMovies() { filterbyPredicate(x => x.watched === true && x.mediatype === "Movie") }
+function filterbyShows() { filterbyPredicate(x => x.mediatype === "TVShow") }
+function filterbyToWatchShows() { filterbyPredicate(x => x.toWatch === true && x.mediatype === "TVShow") }
+function filterbyWatchedShows() { filterbyPredicate(x => x.watched === true && x.mediatype === "TVShow") }
 
 
 function filterbyPredicate(predicate) {
@@ -439,8 +445,8 @@ function filterbyPredicate(predicate) {
   for (var i = 0; i < table.children.length; i++) {
     var row = table.children.item(i);
 
-    var rowId = Number(row.getAttribute("data-id")); // turns it from string to number for comparison
-
+    var rowId = Number(row.getAttribute("data-id"));
+    
     if (contentIds.includes(rowId)) {
       row.style.display = "table-row";
       if (row.nextElementSibling !== null) {
@@ -460,10 +466,10 @@ function refreshDisplay() {
     table.removeChild(table.children.item(i));
   }
   getContentData().map(showItem);
+  
 }
 
 function startDisplay() {
-  const headerName = document.getElementById("table-title");
   headerName.innerHTML = "All (" + (Number(movie) + Number(shows)) + ") ";
 }
 
