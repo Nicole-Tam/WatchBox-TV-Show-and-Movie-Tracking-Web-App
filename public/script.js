@@ -1,16 +1,9 @@
 var id = Number(localStorage.getItem('id')) || 0;
-var movie = Number(localStorage.getItem('movieCount')) || 0;
-var shows = Number(localStorage.getItem('showCount')) || 0;
-var favouriteCount = Number(localStorage.getItem('favouriteCount')) || 0;
-var watchedShows = Number(localStorage.getItem('watchedShowsCount')) || 0;
-var watchedMovies = Number(localStorage.getItem('watchedMoviesCount')) || 0;
-var toWatchShows = Number(localStorage.getItem('toWatchShowsCount')) || 0;
-var toWatchMovies = Number(localStorage.getItem('toWatchMoviesCount')) || 0;
 var date;
 const headerName = document.getElementById("table-title");
 
 refreshDisplay(); //refreshes browser content so that preexisting content shows when browser is opened
-startDisplay();
+// startDisplay();
 
 const addButton = document.getElementById("add-content-button");
 const overlay = document.getElementById("content-popup-background");
@@ -18,7 +11,8 @@ const popup = document.getElementById('content-popup');
 const closePopup = document.querySelector("#form-close a");
 const form = document.getElementById("content-form");
 
-const closeDetails = document.querySelector("#detail-close a");
+
+const closeDetails = document.getElementById("detail-close");
 var contentRow = document.getElementsByClassName("display-content");
 
 
@@ -83,7 +77,9 @@ deleteBtn.addEventListener("click", function () {
   detailOverlay.style.display = "none"
 });
 
-
+closeDetails.addEventListener("click", function () {
+  detailOverlay.style.display = "none"
+});
 
 var detailOverlay = document.getElementById("detail-overlay");
 var contentRow = document.getElementsByClassName("display-content");
@@ -96,18 +92,7 @@ form.addEventListener("submit", function (event) {
 )
 
 //retrieving form input
-var id = Number(localStorage.getItem('id')) || 0;
-var movie = Number(localStorage.getItem('movieCount')) || 0;
-var shows = Number(localStorage.getItem('showCount')) || 0;
-var favouriteCount = Number(localStorage.getItem('favouriteCount')) || 0;
-var watchedShows = Number(localStorage.getItem('watchedShowsCount')) || 0;
-var watchedMovies = Number(localStorage.getItem('watchedMoviesCount')) || 0;
-var toWatchShows = Number(localStorage.getItem('toWatchShowsCount')) || 0;
-var toWatchMovies = Number(localStorage.getItem('toWatchMoviesCount')) || 0;
-var date;
-
-
-function addItem() {
+  function addItem() {
   var name = form.elements['title'].value
   var mediatype = form.elements['media-type'].value
   var genre = form.elements['genre'].value
@@ -131,61 +116,28 @@ function addItem() {
       watched,
       toWatch,
       date: new Date(),
+      groups: []
     })
+
 
   id = id + 1 //so each item has different id (for deletion)
 
   if (mediatype === "Movie") {
     item.runtime = form.elements['runtime'].value;
-    movie = movie + 1;
 
-    if (favourites === true && watched === true && toWatch === true) {
-      favouriteCount = favouriteCount + 1;
-      watchedMovies = watchedMovies + 1;
-      toWatchMovies = toWatchMovies + 1;
-    } else if (favourites === true && watched === true) {
-      favouriteCount = favouriteCount + 1;
-      watchedMovies = watchedMovies + 1;
-    } else if (favourites === true && toWatch === true) {
-      favouriteCount = favouriteCount + 1;
-      toWatchMovies = toWatchMovies + 1;
-    } else if (watched === true && toWatch === true) {
-      watchedMovies = watchedMovies + 1;
-      toWatchMovies = toWatchMovies + 1;
-    } else if (favourites === true) {
-      favouriteCount = favouriteCount + 1;
-    } else if (watched === true) {
-      watchedMovies = watchedMovies + 1;
-    } else if (toWatch === true) {
-      toWatchMovies = toWatchMovies + 1;
-    }
   } else {
     item.seasons = form.elements['seasons'].value;
     item.episodes = form.elements['episodes'].value;
-    shows = shows + 1;
 
-    if (favourites === true && watched === true && toWatch === true) {
-      favouriteCount = favouriteCount + 1;
-      watchedShows = watchedShows + 1;
-      toWatchShows = toWatchShows + 1;
-    } else if (favourites === true && watched === true) {
-      favouriteCount = favouriteCount + 1;
-      watchedShows = watchedShows + 1;
-    } else if (favourites === true && toWatch === true) {
-      favouriteCount = favouriteCount + 1;
-      toWatchShows = toWatchShows + 1;
-    } else if (watched === true && toWatch === true) {
-      watchedShows = watchedShows + 1;
-      toWatchShows = toWatchShows + 1;
-    } else if (favourites === true) {
-      favouriteCount = favouriteCount + 1;
-    } else if (watched === true) {
-      watchedShows = watchedShows + 1;
-    } else if (toWatch === true) {
-      toWatchShows = toWatchShows + 1;
-    }
   }
-  saveCountToLocal();
+var checkboxes = form.querySelectorAll("input[type='checkbox']");
+for (var i = 0; i < checkboxes.length; i++) {
+  var checkbox = checkboxes[i];
+  if (checkbox.checked) {
+    item.groups.push(checkbox.getAttribute("name"));
+  }
+}
+
   var myMovies = getContentData();
   myMovies.push(item);
   setMovieData(myMovies);
@@ -214,7 +166,21 @@ function showItem(item) {
   td2.appendChild(review);
   td3.textContent = item.genre
   td3.classList.add("headers", "genre-row");
-  td4.textContent = item.rating;
+
+  var starstr = '<i class="fa-regular fa-star"></i>'.repeat(5);
+  if (item.rating > 0) {
+    starstr = "";
+    for (var i = 0; i < Math.floor(item.rating / 2); i++) {
+      starstr = starstr + '<i class="fa-solid fa-star"></i>';
+    }
+    if (item.rating % 2 === 1) {
+      starstr = starstr + '<i class="fa-solid fa-star-half-stroke"></i>' + "<i class=fa-regular fa-star-half fa-flip-horizontal></i>";
+    }
+    var remainingStars = 5 - Math.ceil(item.rating / 2);
+    starstr = starstr + '<i class="fa-regular fa-star"></i>'.repeat(remainingStars);
+  }
+  td4.innerHTML = starstr;
+
   td4.classList.add("headers", "rating-row");
   td5.classList.add("headers", "length-row");
   tr.appendChild(td1);
@@ -236,7 +202,7 @@ function showItem(item) {
     if (item.seasons === "0") {
       td5.innerHTML = 'Episodes: ' + item.episodes;
     } else {
-      td5.innerHTML = 'Seasons: ' + item.seasons + "<br>" + 'Episodes: ' + item.episodes;
+      td5.innerHTML = "Seasons: " + item.seasons + "<br>" + 'Episodes: ' + item.episodes;
     }
   }
 
@@ -261,27 +227,32 @@ function createDetailOverlay(item) {
   var description = document.querySelector(".content-description");
   var review = document.querySelector(".content-review");
   var rating = document.querySelector(".content-rating");
+  var date = document.querySelector(".content-date");
+  var groups = document.querySelector(".content-groups");
+  var runtimeDetail = document.getElementById("content-runtime-label")
   var runtimeField = document.querySelector(".content-runtime");
-  var seasonsInput = document.getElementById("seasons");
-  var episodesInput = document.getElementById("episodes");
+  var seasonsCount = document.getElementById("content-seasons");
+  var showCount = document.getElementById("content-show-length")
 
   contentName.textContent = item.name;
   typeInOverlay.textContent = item.mediatype;
   genre.textContent = item.genre;
   description.textContent = item.description;
+  rating.textContent = item.rating + "/10";
   review.textContent = item.review;
-  rating.textContent = item.rating;
-
-
+  date.textContent = item.date.slice(0,10);;
+  groups.textContent = item.groups.join(", ");
+  
   if (item.mediatype === "Movie") {
+    typeInOverlay.textContent = item.mediatype;
     runtimeField.textContent = item.runtime + " Minutes";
-    document.getElementById("show-length").style.display = "none";
-    document.getElementById("runtime").style.display = "block";
+    showCount.style.display = "none";
+    runtimeDetail.style.display = "flex";
   } else {
-    seasonsInput.value = item.seasons;
-    episodesInput.value = item.episodes;
-    document.getElementById("runtime").style.display = "none";
-    document.getElementById("show-length").style.display = "block";
+    typeInOverlay.textContent = "TV Show";
+    seasonsCount.innerHTML = "Seasons: " + (item.seasons ? item.seasons : "1") +"&nbsp&nbspEpisodes: " + (item.episodes ? item.episodes : 1);
+    runtimeDetail.style.display = "none";
+    showCount.style.display = "flex";
   }
 
   overlay.style.display = "flex";
@@ -294,56 +265,11 @@ function deleteItem(id) {
 
   if (deletedItem.mediatype === "Movie") {
     deletedItem.runtime = form.elements['runtime'].value;
-    movie = movie - 1;
-
-    if (deletedItem.favourites === true && deletedItem.watched === true && deletedItem.toWatch === true) {
-      favouriteCount = favouriteCount - 1;
-      watchedMovies = watchedMovies - 1;
-      toWatchMovies = toWatchMovies - 1;
-    } else if (deletedItem.favourites === true && deletedItem.watched === true) {
-      favouriteCount = favouriteCount - 1;
-      watchedMovies = watchedMovies - 1;
-    } else if (deletedItem.favourites === true && deletedItem.toWatch === true) {
-      favouriteCount = favouriteCount - 1;
-      toWatchMovies = toWatchMovies - 1;
-    } else if (deletedItem.watched === true && deletedItem.toWatch === true) {
-      watchedMovies = watchedMovies - 1;
-      toWatchMovies = toWatchMovies - 1;
-    } else if (deletedItem.favourites === true) {
-      favouriteCount = favouriteCount - 1;
-    } else if (deletedItem.watched === true) {
-      watchedMovies = watchedMovies - 1;
-    } else if (deletedItem.toWatch === true) {
-      toWatchMovies = toWatchMovies - 1;
-    }
   } else {
     deletedItem.seasons = form.elements['seasons'].value;
     deletedItem.episodes = form.elements['episodes'].value;
-    shows = shows - 1;
-
-    if (deletedItem.favourites === true && deletedItem.watched === true && deletedItem.toWatch === true) {
-      favouriteCount = favouriteCount - 1;
-      watchedShows = watchedShows - 1;
-      toWatchShows = toWatchShows - 1;
-    } else if (deletedItem.favourites === true && deletedItem.watched === true) {
-      favouriteCount = favouriteCount - 1;
-      watchedShows = watchedShows - 1;
-    } else if (deletedItem.favourites === true && deletedItem.toWatch === true) {
-      favouriteCount = favouriteCount - 1;
-      toWatchShows = toWatchShows - 1;
-    } else if (deletedItem.watched === true && deletedItem.toWatch === true) {
-      watchedShows = watchedShows - 1;
-      toWatchShows = toWatchShows - 1;
-    } else if (deletedItem.favourites === true) {
-      favouriteCount = favouriteCount - 1;
-    } else if (deletedItem.watched === true) {
-      watchedShows = watchedShows - 1;
-    } else if (deletedItem.toWatch === true) {
-      toWatchShows = toWatchShows - 1;
-    }
   }
 
-  saveCountToLocal();
   myMovies = myMovies.filter((m) => m.id !== id);
   setMovieData(myMovies);
   refreshDisplay();
@@ -355,12 +281,6 @@ function showDetails(e) {
   var item = getContentData()[Number(ele.getAttribute("data-id"))];
   createDetailOverlay(item);
 }
-
-
-closeDetails.addEventListener("click", () => {
-  detailOverlay.style.display = "none";
-});
-
 
 function getContentData() {
   return (JSON.parse(localStorage.getItem("myMovieData")) ?? []); //so that refreshDisplay doesn't show an error when myMovieData is empty
@@ -388,42 +308,42 @@ document.getElementById("filter-all").addEventListener("click", function () {
   let filterAllText = document.querySelector("#filter-all a")
   filterAllText.innerHTML = "<b>All</b>"
   filterbyAll();
-  headerName.innerHTML = "All (" + (Number(movie) + Number(shows)) + ")";
+  headerName.innerHTML = "All";
 });
 
 document.getElementById("filter-favourites").addEventListener("click", function () {
   filterbyFavourites();
-  headerName.innerHTML = "Favourites (" + favouriteCount + ")";
+  headerName.innerHTML = "Favourites";
 });
 
 document.getElementById("filter-movies").addEventListener("click", function () {
   filterbyMovies();
-  headerName.innerHTML = "Movies (" + movie + ")";
+  headerName.innerHTML = "Movies";
 });
 
 document.getElementById("filter-to-watch-movies").addEventListener("click", function () {
   filterbyToWatchMovies();
-  headerName.innerHTML = "Movies: To Watch (" + toWatchMovies + ")";
+  headerName.innerHTML = "Movies: To Watch";
 });
 
 document.getElementById("filter-watched-movies").addEventListener("click", function () {
   filterbyWatchedMovies();
-  headerName.innerHTML = "Movies: Watched (" + watchedMovies + ")";
+  headerName.innerHTML = "Movies: Watched";
 });
 
 document.getElementById("filter-shows").addEventListener("click", function () {
   filterbyShows();
-  headerName.innerHTML = "TV Shows (" + shows + ")";
+  headerName.innerHTML = "TV Shows";
 });
 
 document.getElementById("filter-to-watch-shows").addEventListener("click", function () {
   filterbyToWatchShows();
-  headerName.innerHTML = "Shows: To Watched (" + toWatchShows + ")";
+  headerName.innerHTML = "Shows: To Watched";
 });
 
 document.getElementById("filter-watched-shows").addEventListener("click", function () {
   filterbyWatchedShows();
-  headerName.innerHTML = "Shows: Watched (" + watchedShows + ")";
+  headerName.innerHTML = "Shows: Watched";
 });
 
 
@@ -442,22 +362,25 @@ function filterbyPredicate(predicate) {
   var content = getContentData();
   var contentIds = content.filter(x => predicate(x)).map(x => x.id);
   var table = document.getElementById("content-table").children.item(1);
-  for (var i = 0; i < table.children.length; i++) {
-    var row = table.children.item(i);
-
-    var rowId = Number(row.getAttribute("data-id"));
-    
-    if (contentIds.includes(rowId)) {
-      row.style.display = "table-row";
-      if (row.nextElementSibling !== null) {
-        row.nextElementSibling.style.display = "table-row"
-      }
-    } else {
-      row.style.display = "none";
-    }
+  for (var i = 0; i < table.children.length; i++){
+    table.children.item(i).style.display = "none"
   }
   table.children.item(0).style.display = "table-row"
+  for (var i = 0; i < table.children.length; i++){
+    var row = table.children.item(i);
+    if(row.getAttribute("data-id") === null){ continue; }
+    var rowId = Number(row.getAttribute("data-id"));
+
+    if(contentIds.includes(rowId)) {
+      row.style.display = "table-row";
+      if(row.nextElementSibling !== null ){
+        row.nextElementSibling.style.display = "table-row"
+      }
+    }
+  }
+  document.getElementById("table-title-count").innerHTML = "&nbsp;("+contentIds.length+")"
 }
+
 
 function refreshDisplay() {
   var table = document.getElementById("content-table").children.item(1);
@@ -466,20 +389,6 @@ function refreshDisplay() {
     table.removeChild(table.children.item(i));
   }
   getContentData().map(showItem);
-  
-}
-
-function startDisplay() {
-  headerName.innerHTML = "All (" + (Number(movie) + Number(shows)) + ") ";
-}
-
-function saveCountToLocal() {
-  localStorage.setItem('id', id); 
-  localStorage.setItem('movieCount', movie);
-  localStorage.setItem('showCount', shows);
-  localStorage.setItem('favouriteCount', favouriteCount);
-  localStorage.setItem('watchedShowsCount', watchedShows);
-  localStorage.setItem('watchedMoviesCount', watchedMovies);
-  localStorage.setItem('toWatchShowsCount', toWatchShows);
-  localStorage.setItem('toWatchMoviesCount', toWatchMovies);
+  filterbyAll()
+  headerName.innerHTML = "All";
 }
