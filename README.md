@@ -58,8 +58,9 @@ The original idea for TV shows was for the tracker to show the user which season
 
 Looking back on some of my javascript, I definitely think it could've been simplified: functions couldve been used for some of the event clickers, I could've made my create item make a whole new tbody each time so that I wouldn't need to spend so long fixing the issues with my whitespace td, and if I had used HTML section tags instead of a table it would've made the process easier too. These are definitely things I will keep in mind, and mistakes I will definitely keep making, but hopefully less.
 
+Furthermore, I tried to simplify my javascript code as best I could, but there were definitely many mistakes made in the process, and sometimes it had me wishing that I didn't try to fix it in the first place. When I changed my refresh display code, I overlooked things like the for loops; which direction the i++ was going in, copy and pasting for loops when it should've been i-- instead to work.
 
-
+When it came to counting the rows, I definitely could've made it simpler by creating a function that counts the rows with the attribute display-content, rather than making a separate item count, but since it works without an issue, I decided to keep it, and perhaps work on it in the final product.
 
 
 # Things I learnt through this project
@@ -96,6 +97,11 @@ It's also useful in basically every other aspect of front-end development
 ## Should've used SCSS...
 
 Would've been much easier, despite needing to transition what I already had to scss. Will definitely be utilizing it in the future.
+
+## The longer I code for, the lazier I get.
+
+This is all seen with my indentation, formatting, semantic HTML, css headers and ids, javascript function names and variable names. Thinking of simple yet descriptive id and variable names can be challenging, and I often have to go back and change them. Even with semantic HTML, theres so many existing tag names but sometimes I just use div because it's simpler. This is something I'm actively trying to improve, but can be difficult when you feel there is no suitable HTML tag, or when you can't come up with different ID names. The amount of time I spent going back to change names did not justify the amount I saved not doing so to begin with.
+
 
 ![Alt text](readme-assets/devtools2.png)
 
