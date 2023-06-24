@@ -5,10 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
   <title>Content Tracker</title>
   <link href="styles.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/c3cdc6f5b0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -46,7 +45,7 @@
           <div class="form-input"><input type="text" name="title" class="title-input" required></div>
         </div>
         <div class="form-content"><label for="genre">Genre:</label>
-          <div class="form-input"><select name="genre">
+          <div class="form-input"><select name="genre" required>
               <option value="Action">Action</option>
               <option value="Adventure">Adventure</option>
               <option value="Comedy">Comedy</option>
@@ -72,8 +71,7 @@
           </div>
         </div>
         <div class="form-content"><label for="rating">Rating:</label>
-          <div class="form-input"><select name="rating">
-              <option value="0">0</option>
+          <div class="form-input"><select name="rating" required>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -101,15 +99,15 @@
           <div class="form-input-checkbox">
             <div class="checkboxes">
               <label for="favourites">Favourites</label>
-              <input type="checkbox" id="favourites" name="favourites">
+              <input type="checkbox" id="favourites" name="Favourites">
             </div>
             <div class="checkboxes">
               <label for="watched">Watched</label>
-              <input type="checkbox" id="watched" name="watched">
+              <input type="checkbox" id="watched" name="Watched">
             </div>
             <div class="checkboxes">
               <label for="watched">To Watch</label>
-              <input type="checkbox" id="to-watch" name="to-watch">
+              <input type="checkbox" id="to-watch" name="To Watch">
             </div>
           </div>
         </div>
@@ -126,24 +124,24 @@
 
   <main id="main-page-wrapper">
     <ul id="filter-bar">
-      <li class="filter-option filters bold" data-category="all" id="filter-all"><a href=#>All <a class ="item-count"></a></a></li>
-      <li class="filter-option filters" data-category="favourites" id="filter-favourites"><a href=#>Favourites <a class ="item-count"></a></li>
-      <li class="filter-option filters" data-category="movies" id="filter-movies"><a href=#>Movies <a class ="item-count"></a></li>
+      <li class="filter-option filters bold" data-category="all" id="filter-all"><a href=#>All</a></li>
+      <li class="filter-option filters" data-category="favourites" id="filter-favourites"><a href=#>Favourites</a></li>
+      <li class="filter-option filters" data-category="movies" id="filter-movies"><a href=#>Movies</a></li>
       <nav class="filter-container">
-        <li class="subfilter-option filters" data-category="watched-movies" id="filter-watched-movies"><a href=#>Watched <a class ="item-count"></a></li>
+        <li class="subfilter-option filters" data-category="watched-movies" id="filter-watched-movies"><a href=#>Watched</a></li>
         <li class="subfilter-option filters" data-category="to-watch-movies" id="filter-to-watch-movies"><a href=#>To Watch </a></li>
       </nav>
-      <li class="filter-option filters" data-category="tvshows" id="filter-shows"><a href=#>TV Shows <a class ="item-count"></a></li>
+      <li class="filter-option filters" data-category="tvshows" id="filter-shows"><a href=#>TV Shows</a></li>
       <nav class="filter-container">
-        <li class="subfilter-option filters" data-category="watched-tvshows" id="filter-watched-shows"><a href=#>Watched <a class ="item-count"></a></li>
-        <li class="subfilter-option filters" data-category="to-watch-tvshows" id="filter-to-watch-shows"><a href=#>To Watch <a class ="item-count"></a></li>
+        <li class="subfilter-option filters" data-category="watched-tvshows" id="filter-watched-shows"><a href=#>Watched</a></li>
+        <li class="subfilter-option filters" data-category="to-watch-tvshows" id="filter-to-watch-shows"><a href=#>To Watch</a></li>
       </nav>
     </ul>
 
     <section id="content-div">
       <table id="content-table">
         <tr id="table-header">
-          <th class="headers" id="table-title" colspan="5"></th>
+          <th class="headers" colspan="5"><span id="table-title"></span><span id="table-title-count"></span></th>
         </tr>
         <tr id="table-bodies">
           <th class="headers type-header">Type</th>
@@ -167,34 +165,33 @@
           <h2 class="content-name">Content Name</h2>
           <div id="detail-close"><a href="#">&#10006;</a></div>
         </div>
-        <div class="form-content"><label class="form-label" for="type">Type:</label>
+        <div class="form-content"><a class="detail-label">Type:</a>
           <div class="detail-input content-type"></div>  
         </div>
-        <div class="form-content"><label for="genre">Genre:</label>
+        <div class="form-content"><a class="detail-label">Genre:</a>
           <div class="detail-input content-genre"></div>
         </div>
-        <div class="form-content"><label for="description">Description:</label>
+        <div class="form-content"><a class="detail-label">Description:</a>
           <div class="detail-input content-description"></div>
         </div>
-        <div class="form-content"><label for="review">Review:</label>
+        <div class="form-content"><a class="detail-label">Review:</a>
           <div class="detail-input content-review"></div>
         </div>
-        <div class="form-content"><label for="rating">Rating:</label>
+        <div class="form-content"><a class="detail-label">Rating:</a>
           <div class="detail-input content-rating"></div>
         </div>
-        <div class="form-content" id="runtime"><label for="runtime">Runtime:</label>
+        <div class="form-content" id="content-runtime-label"><a class="detail-label">Runtime:</a>
           <div class="detail-input content-runtime"></div>
         </div>
-        <div class="form-content" id="show-length"><label for="show-length">Show Length:</label>
-          <div class="detail-input" id="show-input"><label for="seasons">Seasons:&nbsp </label>
-            <input type="text" id="seasons" name="seasons" min="1" max="100000">
-            <label for="episodes">Episodes:&nbsp</label>
-            <input type="text" id="episodes" name="episodes" min="1" max="100000">
+        <div class="form-content" id="content-show-length"><a class="detail-label">Show Length:</a>
+          <div class="detail-input"><a class="detail-label" id="content-seasons"></a>
           </div>
         </div>
         <div class="form-content"><label for="date">Date Added:</label>
+          <div class="detail-input content-date"></div>
         </div>
-        <div class="form-content"><label for="add-to-list">Groups:</label>
+        <div class="form-content"><a class="detail-label">Groups:</a>
+          <div class="detail-input content-groups"></div>
         </div>
         <div class="form-content">
           <div class="detail-input-delete">
