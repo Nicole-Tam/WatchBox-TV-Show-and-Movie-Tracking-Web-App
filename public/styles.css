@@ -103,6 +103,9 @@ body {
   color: white;
 }
 
+.bold {
+  font-weight: bold;
+}
 
 #navigation-bar {
   display: flex;
