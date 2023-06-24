@@ -262,7 +262,7 @@ td {
   border-top-right-radius: 10px;
 }
 
-#table-title {
+#table-header > th {
   font-size: 2em;
   background-color: #061735;
   width: 100%;
@@ -375,7 +375,10 @@ h2 {
 }
 
 .form-content>label {
-  float: left;
+  width: 10em;
+}
+
+.detail-label {
   width: 10em;
 }
 
@@ -414,6 +417,8 @@ h2 {
   padding-top: 0.2em;
   justify-content: flex-end;
 }
+
+
 
 #delete{
   float: right;
@@ -538,7 +543,6 @@ select {
   padding: 20px;
   margin: 1em;
   border-radius: 0.3rem;
-  width: 50%;
 }
 
 #detail-overlay{
@@ -559,8 +563,8 @@ select {
 .detail-input{
   width: 20em;
   margin-bottom: 0.2em;
-
 }
+
 
 @media only screen and (max-width: 480px){
 .filter-container{
@@ -631,7 +635,7 @@ select {
   padding:0 1rem;
 }
 
-#table-title{
+#table-header > th{
   padding: 0.75rem 1rem 0.25rem;
   
 }
@@ -646,7 +650,7 @@ select {
 
 
 .review-header, .review-row {
-  width: 38%;
+  width: 34%;
 }
 
 .review-row { 
@@ -665,7 +669,7 @@ select {
 }
 
 .rating-header {
-  width: 15%;
+  width: 18%;
   border-bottom-right-radius: 10px;
 }
 
